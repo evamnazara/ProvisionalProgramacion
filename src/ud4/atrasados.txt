@@ -1,0 +1,73 @@
+======= UTILES =========
+
+ACCESO A INDICES DE UN ARRAY
+
+acceso directo: 
+
+public class AccesoDirecto {
+    public static void main(String[] args) {
+        // Declarar un array
+        int[] numeros = {10, 20, 30, 40, 50};
+
+        // Acceso directo a los índices
+        System.out.println("El elemento en el índice 0 es: " + numeros[0]); // Imprime 10
+        System.out.println("El elemento en el índice 2 es: " + numeros[2]); // Imprime 30
+        System.out.println("El elemento en el índice 4 es: " + numeros[4]); // Imprime 50
+    }
+}
+
+acceso con bucle for-each:
+
+public class ForEach {
+    public static void main(String[] args) {
+        // Declarar un array
+        int[] numeros = {10, 20, 30, 40, 50};
+
+        // Usar un bucle for-each
+        System.out.println("Elementos del array:");
+        for (int numero : numeros) { // `numero` toma el valor de cada elemento
+            System.out.println(numero);
+        }
+    }
+}
+
+
+======MULTIPLICAR CADA ELEMENTO DE UN ARRAY =====
+
+public class ProcesarElementos {
+    public static void main(String[] args) {
+        // Declarar un array
+        int[] numeros = {10, 20, 30, 40, 50};
+
+        // Multiplicar cada elemento por 2 y mostrar el resultado
+        for (int i = 0; i < numeros.length; i++) {
+            int resultado = numeros[i] * 2;
+            System.out.println("Elemento en índice " + i + " multiplicado por 2: " + resultado);
+        }
+    }
+}
+
+==== SEPARAR ARRAYS DE UNA MATRIZ =====
+
+public class SepararMatriz {
+    public static void main(String[] args) {
+        // Declaramos una matriz 3x3
+        int[][] matriz = {
+            {1, 2, 3},
+            {4, 5, 6},
+            {7, 8, 9}
+        };
+
+        // Extraemos cada fila de la matriz y la mostramos como un array
+        for (int i = 0; i < matriz.length; i++) { // matriz.length = número de filas
+            int[] fila = matriz[i]; // Cada fila es un array unidimensional
+            System.out.print("Fila " + i + ": ");
+            
+            // Imprimir los elementos de la fila
+            for (int j = 0; j < fila.length; j++) {
+                System.out.print(fila[j] + " ");
+            }
+            System.out.println(); // Salto de línea
+        }
+    }
+}

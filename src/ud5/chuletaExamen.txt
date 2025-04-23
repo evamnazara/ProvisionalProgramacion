@@ -1,0 +1,34 @@
+ENUMERACIONES
+    enum Nota {DO, RE, MI, FA, SOL, LA, SI};
+
+======
+    default es especifico de interfaces: no está implementado y es por defecto abstracto y publico 
+    en interfaces, todo es public / static / final
+
+    si CompareTo es true, equals deberia dar 0 
+
+    
+    Comparable y Comparator sirven ambos para criterios de ordenacion
+        Comparator es como random, solo que lo invocas ydefines para comparar 
+
+        comparable : cristerio de orden natural
+        comparator: añade otro 
+====
+
+si se implementa un mñetodo abstracto, la clase madre tiene que se abstracta tambie 
+    ejemplo inmueble
+
+===
+
+si el enunciado pide no modificar el array original, sólo hay que hacer una copia del array !! 
+ejemplo en Praia (sorLatitudes)
+
+EJEMPLOS DE: 
+
+    instanceof: PersonajeEx - rol
+         
+    equals: 
+        Item - rol: 2 objetos iguales si 3 cosas son iguales
+        jugadores: 
+    comparator 
+    comparable (se llama en la clase com implements Comparable)

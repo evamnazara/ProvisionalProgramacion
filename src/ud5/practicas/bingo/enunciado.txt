@@ -1,0 +1,21 @@
+Realiza un programa que simule un Bingo.
+El bombo contendrá números entre 1 y 99.
+Podrán jugar un número indeterminado de jugadores.
+Cada jugador, se identificará por su nombre, que no se podrá repetir, y podrá jugar hasta 5 cartones.
+Cada cartón, en su versión simplificada, está compuesto por 3 filas por 5 columnas de números aleatorios no repetidos.
+
+Al inicio del programa se solicitará al usuario el número de jugadores. Para cada uno se solicitará el nombre y el número de cartones que jugará, que se mostrarán a continuación.
+
+Una vez creados los jugadores y los cartones comenzará el juego del bingo y el programa podrá seguir ejecutándose de una de las dos maneras siguientes:
+Turno a turno: 
+El programa saca un bola aleatoria, no repetida
+Se revisan los cartones de los jugadores
+Se canta línea o bingo si es necesario.
+Se muestra una clasificación de los jugadores por el número de aciertos que tengan el sus cartones.
+Se espera la pulsación de una tecla para continuar con el siguiente turno hasta que algún jugador obtenga bingo.
+Automático:
+El programa saca números sucesivamente sin interrupción del usuario. Informa del primer jugador en obtener Línea y termina cuando se obtiene Bingo.
+
+
+Implementa todo en un único fichero de nombre Bingo.java
+Considera usar clases internas.

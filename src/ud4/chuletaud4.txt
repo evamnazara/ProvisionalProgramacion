@@ -1,0 +1,113 @@
+
+
+
+Generación arrays
+Recorrer array
+Insertar elemento sin desordenar 
+Desordenar
+
+
+Cambio array - string
+Cambio string - array
+
+System.arraycopy: buscar fórmula
+
+GENERACION: 
+
+ORDENACION: 
+
+    public static void desordenar(int t[]) {
+            Random rnd = new Random();
+
+            for (int i = 0; i < t.length; i++) {
+                int nuevaPosicion = rnd.nextInt(t.length);
+                
+                int auxiliar = t[i];
+
+                t[i] = t[nuevaPosicion];
+                t[nuevaPosicion] = auxiliar;
+
+            }
+        }
+
+
+si no se sabe el numero de elementos, inicializar a 0.
+
+
+ejemplos:
+
+- SORTEOS: 
+    > conceptosProgramación: elección aleatoria en array de String 
+         Random rnd = new Random(); 
+         int indiceAleatorio = rnd.nextInt(t.length);
+- BUSQUEDA:
+    > buscandoLetras: 
+    función que devuelve un array con posiciones de una letra en una 
+    cadena. Si no se encuentra la letra devuelve array vacío.
+
+MATRICES: 
+        Arrays.toString(matriz); imprime las referencias de memoria
+        Arrays.deepToString(matriz); imprime los numeros pero a cañon
+
+
+ static void mostrarMatriz(int [][] tabla) {
+        for(int i = 0; i < tabla.length; i++) {
+            for (int j = 0; j < tabla[i].length; j++)
+            System.out.print(tabla[i][j] + " ");
+            System.out.println(" ");
+        }
+
+    }
+
+public class MatrizIdentidad {
+
+    public static boolean esMatrizIdentidad(int[][] matriz) {
+        int filas = matriz.length;
+        int columnas = matriz[0].length;
+
+        // Verificar que la matriz es cuadrada
+        if (filas != columnas) {
+            return false;
+        }
+
+        // Comprobar si la matriz cumple las condiciones de la matriz identidad
+        for (int i = 0; i < filas; i++) {
+            for (int j = 0; j < columnas; j++) {
+                if (i == j) {
+                    if (matriz[i][j] != 1) {
+                        return false; // La diagonal principal debe ser 1
+                    }
+                } else {
+                    if (matriz[i][j] != 0) {
+                        return false; // Los elementos fuera de la diagonal deben ser 0
+                    }
+                }
+            }
+        }
+
+        return true; // La matriz es identidad
+    }
+
+    public static void main(String[] args) {
+        // Ejemplo de uso
+        int[][] matriz1 = {
+            {1, 0, 0},
+            {0, 1, 0},
+            {0, 0, 1}
+        };
+
+        int[][] matriz2 = {
+            {1, 0, 0},
+            {0, 2, 0},
+            {0, 0, 1}
+        };
+
+        System.out.println("Matriz 1 es identidad: " + esMatrizIdentidad(matriz1)); // true
+        System.out.println("Matriz 2 es identidad: " + esMatrizIdentidad(matriz2)); // false
+    }
+}
+
+============= CADENAS CARACTERES ==============
+
+STRINGS: 
+

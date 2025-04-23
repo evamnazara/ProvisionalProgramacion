@@ -1,0 +1,38 @@
+======= EXPRESIONES REGULARES - 111
+
+patrón: serie de reglas fijas que deben cumplirse para validar la información.  
+        expresan como una cadena de texto en la que determinados símbolos tienen un significado especial. - librerias
+
+expresiones regulares: mecanismo para describir esos patrones y que compruebam si una cadena sigue o no un patrón.  
+
+  
+por ejemplo "[01]+" comprueba si una cadena conforma un número binario.  
+ 
+reglas generales:
+    1. "" - indicar que una cadena contiene un numero de símbolos fijo.
+            patrón "aaa" > cadenas con 3 a. 
+
+    2. [] - opcionalidad > sólo un simbolo de los siguientes: ("[xyz]") 
+            patrón "aaa[xy]" > valida aaax y aaay 
+
+    3. ("[a-Z]","[A-Z]","[a-zA-Z]") admite cualquier caracter de esos
+
+    4. ? puede aparecer una vez o ninguna
+         a? aparece 0 o 1 veces
+
+    5. * - 0, 1 o N veces 
+        a* > aa, a, aaaaaaaa
+
+    6. + - al menos 1, N 
+        a+ > al menos una a
+
+    7. {} - número mín y máx que un símbolo podrá repetirse. 
+        ("a{1,4}") "a" debe aparecer al menos una vez y como máximo 4  
+
+    8. {2,} - sólo el mínimo 
+
+    9. {5}  - numero exacto 
+   
+    10. indicadores de repetición - "[a-z]{1,4}[0-9]+" > 1-4 letras minúsculas + un numero.
+ 
+ 

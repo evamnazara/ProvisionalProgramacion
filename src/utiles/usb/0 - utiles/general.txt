@@ -1,0 +1,17 @@
+Queremos un rango de (5:10)
+        random() = 0 : 0.999...
+         (int)Math.random() * (MAX - MIN + 1) + MIN;
+
+        int rand = (int)Math.random() * ( 10 - 5 + 1 ) + 5;
+
+________________________________________________________
+
+int x= 0;
+
+if (x != 0 && 10/x > 1) {
+            // Código
+        }
+
+if (x == 0 && 10/x > 1) {
+        // Código
+        }

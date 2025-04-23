@@ -1,0 +1,40 @@
+declaracion:
+
+class NombreClase {
+    tipo atributo1
+    tipo atributo2
+    se puede inicializar en x valor
+    final String dni; una vez asignado no se puede cambiar 
+    }
+
+Persona p;
+
+Los atributos a los que no se les asigna un valor en su declaración se inicializan por defecto dependiendo de su tipo, de la siguiente manera: 
+    0 o 0.0 para tipos numéricos
+    '\0' para el tipo char
+    false para booleanos
+    null para String y resto de referencias a objetos.
+
+
+Persona p = new Persona(); //creamos el objeto 
+    p.nombre "Claudia"; //asignamos valores 
+    p.edad 8; 
+    p.estatura 1.20;
+
+class Persona { 
+   Persona (String nombre, int edad, double estatura) {
+      this.nombre = nombre; //asigna el parámetro al atributo
+      this.edad = edad;
+      this.estatura = estatura;
+        }
+   
+    }
+
+// Creamos e inicializamos el objeto mediante el constructor
+Persona p = new Persona ("Claudia", 8, 1.20); 
+
+
+
+
+
+

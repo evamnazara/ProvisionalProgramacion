@@ -1,0 +1,8 @@
+HOST:
+    > lanzar excepcion si los metodos son invalidos
+    > corregir el equals
+
+CLIENTE: 
+    > ordenacion de enumeraciones. -- instanceof
+    > ordenacion de resolucion -- separar strings (x ahora ordenado natural )
+
