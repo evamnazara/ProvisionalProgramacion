@@ -26,8 +26,6 @@ public static String readFileToString(String filePath)
 DATOS
 */
 
-package ejercicios;
-
 import java.io.BufferedReader;
 import java.io.FileReader;
 import java.io.IOException;

@@ -1,4 +1,4 @@
-package ud6.meigas;
+package meigas;
 
 import java.util.List;
 
@@ -11,7 +11,6 @@ public class Meiga {
     public Meiga(String nome) {
         this.nome = nome;
     }
-
 
     public Meiga(String nome, String alcumeMaxico) {
         this.nome = nome;
