@@ -1,0 +1,6 @@
+cuando se usan las clases estaticas 
+diferencias entre map set list hash estaticas
+expresiones lamda
+rehacer meigas desde 0 
+
+no va a haber que hacer referencias a metodos 
