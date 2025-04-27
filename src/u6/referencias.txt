@@ -1,0 +1,21 @@
+
+
+ejercicios:
+E1204: iterator: quitar múltiplos / pares + consola -1
+E1205: lista rnd sin repetidos.
+E1206: lista rnd sin el numero 5
+E1206B: lista -100/100 separando positivos y negativos + sumatorios de ambos + borrar ciertos elementos
+
+ejemplos:
+ej1/2- ciudades, crear iterator / borrar un elemento concreto
+
+_________
+20 enteros random de 1 a 10.
+Random rnd = new Random();
+        ArrayList<Integer> numeros = new ArrayList<>();
+
+        for (int i = 0; i < 20; i++) {
+            numeros.add(rnd.nextInt(10) +1);
+        }
+        System.out.println(numeros);
+

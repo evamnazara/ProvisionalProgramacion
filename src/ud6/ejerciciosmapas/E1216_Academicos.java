@@ -1,4 +1,4 @@
-package ud6.ejerciciosmapas;
+package ejerciciosmapas;
 
 /*E1216. Los miembros de la Real Academia de la Lengua ocupan sillones con las letras del abecedario español, minúsculas y mayúsculas (en la práctica, las letras v, w, x, y, z, N, W, Y nunca se ocupan, pero nosotros no lo tendremos en cuenta). Cuando un sillón queda vacante, se nombra un nuevo académico para ocuparlo.
 
@@ -29,38 +29,64 @@ DATOS
 import java.io.BufferedReader;
 import java.io.FileReader;
 import java.io.IOException;
-import java.util.Iterator;
+
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.Collections;
+import java.util.Comparator;
+import java.util.List;
 import java.util.Map;
 import java.util.TreeMap;
 
 public class E1216_Academicos {
-    public class Academico {
+    public static class Academico implements Comparable<Academico> {
         String nombre;
         int anhoIngreso;
-
 
         public Academico(String nombre, int anhoIngreso) {
             this.nombre = nombre;
             this.anhoIngreso = anhoIngreso;
         }
 
-        
-        @Override
-        public String toString() {
-        return nombre + " (" + anhoIngreso + ")";
+        public String getNombre() {
+            return nombre;
         }
 
-        static boolean nuevoAcademico (Map<Character, Academico> academia, Academico nuevo, Character letra) {
+        public int getAnhoIngreso() {
+            return anhoIngreso;
+        }
+
+        public void setNombre(String nombre) {
+            this.nombre = nombre;
+        }
+
+        public void setAnhoIngreso(int anhoIngreso) {
+            this.anhoIngreso = anhoIngreso;
+        }
+
+        // añadir un nuevo académico:
+        static boolean nuevoAcademico(Map<Character, Academico> academia, Academico nuevo, Character letra) {
             if (Character.isLetter(letra)) {
-                academia.put(letra,nuevo);
+                academia.put(letra, nuevo);
                 return true;
             }
 
             return false;
         }
 
+        @Override
+        public String toString() {
+            return nombre + " (" + anhoIngreso + ")";
+        }
+
+        // criterio de ord natural: por nombre
+        @Override
+        public int compareTo(Academico otro) {
+            return this.nombre.compareTo(otro.nombre);
+        }
 
     }
+
     public static String readFileToString(String filePath) {
         StringBuilder fileContent = new StringBuilder();
         try {
@@ -83,41 +109,55 @@ public class E1216_Academicos {
     }
 
     public static void main(String[] args) {
+        // cargar fichero:
         String ficheroAcademicos = readFileToString("academicos.txt");
-        System.out.println(ficheroAcademicos);
+        // System.out.println(ficheroAcademicos);
 
-        Map <Character,Academico> academia = new TreeMap<>();   
+        // crear mapa academia: ordenado x clave (letra) -> Character
+        Map<Character, Academico> academia = new TreeMap<>();
 
-
+        // separar las lineas del fichero con un setring:
         String[] lineas = ficheroAcademicos.split("\\n");
-        System.out.println(lineas);
+        // System.out.println(Arrays.toString(lineas));
 
         for (int i = 0; i < lineas.length; i++) {
-            Character letra = lineas[i].charAt(6);
-            String nombre = lineas[i].substring(7,lineas[i].length() - 6);
+            Character letra = lineas[i].charAt(6); // el txt empieza por Silla, no directamente en la letra
+            String nombre = lineas[i].substring(7, lineas[i].length() - 6);
             int anho = Integer.parseInt(lineas[i].substring(lineas[i].length() - 5, lineas[i].length() - 1));
+            // System.out.println(letra + " - " + nombre + " ( " + anho + ")");
 
-            System.out.println(letra + " - " + nombre + " ( " + anho + ")");
-            nuevoAcademico(academia,new Academico(nombre,anho), letra);
-            }
-        System.out.println(academia);
-                   
-        //ordenados:
-                
-        //sin letra, por orden de nombre
-        for (Academico a : academia.values()) {
-            a 
+            // Insertar en el mapa
+            Academico.nuevoAcademico(academia, new Academico(nombre, anho), letra);
         }
 
-        /*Iterator<Map.Entry<Academico,String>> academicos = academia.entrySet();
-        
-            while (it.hasNext()) {
-                Map.Entry<Academico,String> entrada= it.next();
-                }*/
+        // ordenados de diferentes maneras:
 
-        //sin letra, por orden de año de ingreso y en caso de empate por nombre; 
-        //con letra, por orden de letra (clave), indicando nombre y fecha de ingreso.
+        // System.out.println("Listado de académicos, sin letra:");
+        // se crea una lista con todos los valores
+        List<Academico> listaAcademicos = new ArrayList<>(academia.values());
+
+        System.out.println("Académicos ordenados por nombre:");
+        Collections.sort(listaAcademicos); // como pide orden natural, se hace con compareTo
+        for (Academico academico : listaAcademicos) {
+            System.out.println(academico);
+        }
+
+        // sin letra, por orden de año de ingreso y en caso de empate por nombre;
+        System.out.println("Académicos ordenados por año, ");
+        listaAcademicos.sort(Comparator.comparingInt(Academico::getAnhoIngreso).thenComparing(Academico::getNombre));
+        Collections.sort(listaAcademicos); // como pide orden natural, se hace con compareTo
+        for (Academico academico : listaAcademicos) {
+            System.out.println(academico);
+        }
+
+        // con letra, por orden de letra (clave), indicando nombre y fecha de ingreso.
+        // ya esta en el mapa treemap, ordenado x la clave
+
+        System.out.println("Mapa de académicos ordenados por letra:");
+        for (Map.Entry<Character, Academico> entry : academia.entrySet()) {
+            System.out.println(entry.getKey() + " : " + entry.getValue());
+        }
 
     }
-                       
+
 }

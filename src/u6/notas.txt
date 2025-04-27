@@ -1,6 +1,44 @@
 cuando se usan las clases estaticas 
-diferencias entre map set list hash estaticas
+diferencias entre map set list hash 
+    heredados de (Collection<E>)
+        List<E> -> ArrayList PERMITE  
+        Set<E> -> TreeSet y HashSet NO PERMITE 
+            HashSet no tienen un orden especifico + permite nulos
+            TreeSet ordenados con compare + no permite nulos
+
+como se hace un mapa
 expresiones lamda
 rehacer meigas desde 0 
 
 no va a haber que hacer referencias a metodos 
+
+
+Métodos básicos interfaz Collection:
+    boolean add(E e)
+    boolean remove(Object o)
+    void clear()
+    int size()
+    boolean isEmpty()
+    boolean contains(Object o)
+    String toString()
+    Iterator<E> iterator()
+        boolean hasNext()
+        E next()
+        default void remove()
+
+
+QUITAR REPETIDOS: ej ejericio 1205 
+    pasar de una lista aleatoria con un hashset 
+
+CAMBIAR DE UN METODO A OTRO:
+    Set<Integer> numEnteros = new LinkedHashSet<>();
+        numEnteros.add(4); 5, 2,4,8,3...
+    sout(numEnteros) [5, 2, 4, 8, 3]
+
+    //si quisieramos ordenarlos : 
+    Set<Integer> numEnterosOrdenados = new TreeSet<>();
+        numEnterosOrdenados.AddAll(numEnteros);
+            //-> a partir de aquí, se puede mantener ordenada al insertar y eliminar
+    sout(numEnterosOrdenados) [2, 3, 4, 5, 8] 
+
+TAMBIEN: Set<Integer> numEnterosOrdenados = new TreeSet<>(numEnteros);

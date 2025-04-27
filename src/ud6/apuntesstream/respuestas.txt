@@ -1,0 +1,42 @@
+Un Contederdor<T> significa que es genérico, es decir, los parametros pueden ser Integers, Doubles.. lo que sea.
+    Si Contenedor no llevase T, y se guarda un objeto qye no corresponda, el compilador traga, pero habra error al ejecutar
+
+<T> es el tipo de datos, NO puede ser un primitivo, solo una clase o una interfaz
+<E> es un parametro generico, o sea, List<E> significa List <Integer> o List<Double>
+
+Creación de un contenedor de enteros: 
+    Contenedor <Integer> cont = new Contenedor <Integer>();
+    o
+    Contenedor <Integer> cont = new Contenedor <>();
+
+
+ITERATOR / ITERABLE 
+declaración: 
+    sobre tipos o clases
+
+    ArrayList<String> ciudades = new ArrayList<String>();
+        Puede ser tambien ArrayList<Personas> e Iterator<Personas>
+
+    Iterator<String> it = ciudades.iterator();
+
+
+métodos: 
+    next() - devuelve todos los elementos desde el primero > si no existe nosuchelementexception
+    hasNext() - true si existe un proximo objeto de next() a retornar
+    remove() - elimina lo ultimo q devuelve next(), hay que invocarlos juntos
+
+cosas: 
+    para eliminar un elemento en concreto, no se debe utilizar for each > porque modificamos el tamaño de la coleccion al recorrerlo. 
+
+LIST <E> 
+    ArrayList: admite duplicados, 
+    LinkedList: mejor para insertar y eliminar en medio de la lista 
+
+métodos: 
+    get, set, add, remove, indexOf,lastIndexOf,ListIterator
+
+
+SET<E>
+no admite duplicados
+TreeSet: no nulos - > si necesitamos q se ordenen x un parametro // compareTo o Comparator
+HashSet: no tiene orden especifico, ni el orden en q se muestra tiene pq ser el de insercion + permite nulos
