@@ -5,6 +5,7 @@ diferencias entre map set list hash
         Set<E> -> TreeSet y HashSet NO PERMITE 
             HashSet no tienen un orden especifico + permite nulos
             TreeSet ordenados con compare + no permite nulos
+                en clase propia hay q implementar comparable
 
 como se hace un mapa
 expresiones lamda

@@ -18,4 +18,3 @@ Random rnd = new Random();
             numeros.add(rnd.nextInt(10) +1);
         }
         System.out.println(numeros);
-
