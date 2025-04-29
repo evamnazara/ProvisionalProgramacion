@@ -1,5 +1,6 @@
 package apuntesgenericos;
 
+@SuppressWarnings("rawtypes")
 class ClaseGenericaDeComparables<T extends Comparable> {
     T a, b, c;
     // operaciones con a y b

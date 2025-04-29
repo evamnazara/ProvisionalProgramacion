@@ -1,18 +1,19 @@
 package meigas;
 
-import java.util.Arrays;
+import java.util.ArrayList;
 import java.util.Collection;
+import java.util.Collections;
 import java.util.HashMap;
-import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
 import java.util.Random;
-import meigas.Feitizo;
 
 public class Meiga {
     String nome;
     String alcumeMaxico;
-    List feitizosFavoritos;
+    // List feitizosFavoritos; no sirve !! hay que poner de que es la lista
+    // Hhay que invocar un alista en el constructor!!
+    List<Feitizo> feitizosFavoritos;
     Map<String, Integer> inventario;
 
     public Meiga(String nome) {
@@ -24,25 +25,32 @@ public class Meiga {
         this.alcumeMaxico = alcumeMaxico;
     }
 
-    public Meiga(String nome, String alcumeMaxico, List feitizosFavoritos) {
+    // para evitar el aviso del rawType, poner en Collection lo q es, <Feitizo>
+    public Meiga(String nome, String alcumeMaxico, Collection<Feitizo> feitizosFavoritos) {
         this.nome = nome;
         this.alcumeMaxico = alcumeMaxico;
-        this.feitizosFavoritos = feitizosFavoritos;
+        // this.feitizosFavoritos = feitizosFavoritos;
+        this.feitizosFavoritos = new ArrayList<>(feitizosFavoritos);
+
     }
 
-    public Meiga(String nome, String alcumeMaxico, List feitizosFavoritos, Map<String, Integer> inventario) {
+    public Meiga(String nome, String alcumeMaxico, Collection<Feitizo> feitizosFavoritos,
+            Map<String, Integer> inventario) {
         this.nome = nome;
         this.alcumeMaxico = alcumeMaxico;
-        this.feitizosFavoritos = feitizosFavoritos;
+        this.feitizosFavoritos = new ArrayList<>(feitizosFavoritos); // otra vez
         this.inventario = inventario;
     }
 
-
     // e. seleccione devolva unha colección aleatoria de feitizos a partir da
     // colección que recibe como parámetro.
+
     public static Collection<Feitizo> getFeitizosRnd(Collection<Feitizo> feitizosExemplo) {
-        List<Feitizo> feitizos = Arrays.asList(crearFeitizosExemplo());
-        return feitizosExemplo;
+        List<Feitizo> lista = new ArrayList<>(feitizosExemplo); // haces una lista nueva con los hechizos originales
+        Collections.shuffle(lista); // mezclas aleatoriamente
+
+        int n = new Random().nextInt(lista.size()) + 1; // aleatorio de int, el +1 es para coger al menos 1
+        return lista.subList(0, n); // Devuelve los primeros n hechizos mezclados
     }
 
     /*
@@ -52,15 +60,18 @@ public class Meiga {
      * tamén se pasa como parámetro.
      */
     public static Map<String, Integer> getIngredientesRnd(Collection<String> ingredientesExemplo, int udMaximas) {
-        Map<String,Integer> ingredientesRandom = new HashMap<>();
+        Map<String, Integer> ingredientesAleatorios = new HashMap<>(); // generar el mapa
+        Random rnd = new Random();
 
-
-        for (String i : ingredientesExemplo) {
-            
+        for (String ingrediente : ingredientesExemplo) {
+            // por ejemplo, un 50% de probabilidad de incluir el ingrediente
+            if (rnd.nextBoolean()) {
+                int cantidad = rnd.nextInt(udMaximas) + 1; // Entre 1 y udMaximas
+                ingredientesAleatorios.put(ingrediente, cantidad);
+            }
         }
 
-        System.out.println();
-        return ingredientesRandom;
+        return ingredientesAleatorios;
     }
     /*
      * g. Crea un método de instancia lanzarFeitizo(Feitizo) que, en caso de que
@@ -71,17 +82,46 @@ public class Meiga {
      * de esa lista
      */
 
-     public static Map<String,Integer> lanzarFeitizo (Collection<String> ingredientes, Integer udInventario) {
-        List<String> ingredientesInventario = Arrays.asList(crearMeigasExemplo());
+    public void lanzarFeitizo(Feitizo feitizo) {
+        // Verifica si el hechizo está entre sus favoritos
+        if (!feitizosFavoritos.contains(feitizo)) {
+            System.out.println(nome + " non coñece o feitizo " + feitizo.getNome());
+            return;
+        }
 
-       Iterator<Map.Entry<String,Integer>> it;
-       for
-        
-     }
-    
+        // NOTA: aquí daba un error Type mismatch: cannot convert from List<String> to
+        // Map<String,Integer>
+        // Map<String, Integer> ingredientesNecesarios = feitizo.getIngredientes();
+        // SE cambia de una Lista a un mapa.
+
+        Map<String, Integer> ingredientesNecesarios = new HashMap<>();
+        for (String ingrediente : feitizo.getIngredientes()) {
+            ingredientesNecesarios.put(ingrediente, 1); // Asumiendo que se necesita 1 unidad de cada ingrediente
+        }
+
+        // Verifica si tiene ingredientes suficientes
+        for (Map.Entry<String, Integer> entry : ingredientesNecesarios.entrySet()) {
+            String ingrediente = entry.getKey();
+            int udNecesarias = entry.getValue();
+
+            if (inventario.getOrDefault(ingrediente, 0) < udNecesarias) {
+                System.out.println(nome + " non ten suficientes " + ingrediente + " para lanzar o feitizo.");
+                return;
+            }
+        }
+
+        // Si tiene todos los ingredientes, los descuenta del inventario
+        for (Map.Entry<String, Integer> entry : ingredientesNecesarios.entrySet()) {
+            String ingrediente = entry.getKey();
+            int necesario = entry.getValue();
+            inventario.put(ingrediente, inventario.get(ingrediente) - necesario);
+        }
+
+        System.out.println(nome + " lanza o feitizo: " + feitizo.getNome());
+    }
 
     public static Meiga[] crearMeigasExemplo(Feitizo[] feitizosDisponibles) {
-        Random rnd = new Random();
+        // Random rnd = new Random();
 
         String[] nomes = { "Uxía", "Lúa", "Iria", "Noa" };
         String[] alcumes = { "A das Fraguiñas", "Sombra do Vento", "Luz do Bosque", "Meiga da Brétema" };
@@ -104,6 +144,10 @@ public class Meiga {
 
             // Crea a meiga e a engade ao array
             meigas[i] = new Meiga(nome, alcume, feitizos, inventario);
+
+            // PARA EL ERROR he constructor Meiga(String, String, Collection<Feitizo>,
+            // Map<String,Integer>) is undefined
+            // se arregla cambiando el constructos a una Coleccion, en vez de una lista
         }
 
         return meigas;
@@ -112,7 +156,8 @@ public class Meiga {
 
     @Override
     public String toString() {
-        return "Meiga.\nNome: " + nome + "\nAlcume máxico=" + alcumeMaxico + "\n Feitizos Favoritos=" + feitizosFavoritos
+        return "Meiga.\nNome: " + nome + "\nAlcume máxico=" + alcumeMaxico + "\n Feitizos Favoritos="
+                + feitizosFavoritos
                 + ", inventario: " + inventario;
     }
 

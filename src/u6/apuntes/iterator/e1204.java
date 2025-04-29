@@ -16,7 +16,7 @@ public class e1204 {
     public static void main(String[] args) {
 
         Scanner sc = new Scanner(System.in);
-        //se declara el array vacio
+        // se declara el array vacio
         ArrayList<Integer> numeros = new ArrayList<>();
 
         System.out.println("Introduce números, -1 para salir");
@@ -27,7 +27,6 @@ public class e1204 {
             num = sc.nextInt();
         }
         System.out.println(numeros.toString());
-
 
         System.out.println("Sin número pares:");
         for (Integer numero : numeros) {
@@ -45,5 +44,7 @@ public class e1204 {
             }
         }
         System.out.println(numeros.toString());
+
+        sc.close();
     }
 }

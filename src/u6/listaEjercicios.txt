@@ -1,0 +1,297 @@
+APUNTES 6.1 COLECCIONES:
+
+E1201_MetodosGenericos. Implementar un método genérico estático que realice la inserción de un objeto al final de una tabla, ambos del mismo tipo genérico, que se pasan como parámetros. Devuelve una nueva tabla con el resultado de la inserción.
+
+public static <U> U[] add(U e, U[] t)
+    
+Implementa un método genérico que devuelva true si un elemento se encuentra en un array y false en caso contrario.
+
+public static <U> boolean buscar(U e, U[] t)
+
+Implementa un método genérico estático al que se le pasan como parámetros dos tablas con elementos del mismo tipo genérico y devuelve una nueva tabla con los elementos de ambas concatenados (los de la segunda después de los de la primera).
+
+public static <U> U[] concatenar(U[] t1, U[] t2)
+
+public static <U, V> Object[] concatenar2(U[] t1, V[] t2)
+
+E1202. Implementar, con tipos genéricos, la clase ContenedorLista, donde podremos guardar tantos objetos como deseemos. Para ello utilizaremos una tabla, que inicialmente tendrá tamaño cero y se irá redimensionando según añadamos o eliminemos elementos. La clase, además del constructor y toString(), tendrá los siguientes métodos:
+void insertarAlPrincipio(T nuevo)
+void insertarAlFinal(T nuevo)
+T extraerDelPrincipio()
+T extraerDelFinal()
+void ordenar()
+
+E1203. Define la interfaz Pila con parámetros genéricos. A continuación, implementa la interfaz Pila genérica en la clase ContenedorLista. Deberá tener dos métodos genéricos: 
+public void apilar(T e);
+public T desapilar();
+
+Por último, escribe un programa donde se utilice un objeto contenedor como pila. En ella apilamos números enteros positivos leídos del teclado hasta que se introduzca un -1. Después, mediante un bucle, se desapilan todos los números hasta que la pila esté vacía y los mostramos por consola.
+
+
+Define la interfaz Cola con parámetros genéricos. A continuación, implementa también la interfaz Cola genérica en la clase ContenedorLista. Deberá tener dos métodos genéricos: 
+public void encolar(T e);
+public T desencolar();
+
+Por último, escribe un programa donde se utilice un objeto contenedor como cola. En ella encolamos números enteros positivos leídos del teclado hasta que se introduzca un -1. Después, mediante un bucle, se desencolan todos los números hasta que la cola esté vacía y los mostramos por consola.
+
+_________
+E1204. Implementar una aplicación que pida por consola números enteros no negativos hasta que se introduce un -1. Los números se irán insertando en una colección, pudiéndose repetir. Al terminar, se mostrará la colección por pantalla. 
+A continuación, se mostrarán todos los valores pares. Por último, se eliminarán todos los múltiplos de 3 y se mostrará por pantalla la colección resultante.
+Practica el uso de iteradores y bucles for-each para recorrer la colección.
+
+2 5 2 7 9 3 6 7 8 -1 
+
+E1205. Implementar una aplicación en la que se insertan en una colección 100 números enteros aleatorios entre 1 y 10 (incluídos), que pueden estar repetidos. A continuación, se crea una lista con los mismos elementos sin repeticiones.
+
+E1206. Implementar una aplicación donde se insertan 100 números enteros aleatorios entre 1 y 10 (incluidos), que pueden estar repetidos, en una colección. Después se eliminan todos los elementos que valen 5. Mostrar la colección antes y después de la eliminación.
+
+E1206b. Implementa una aplicación donde se generen 100 números reales entre -100 y 100. A medida que se generan, los valores positivos se insertan en una colección y los negativos en otra. Al final se muestran ambas colecciones y las sumas de los elementos de cada una de ellas. Por último, se eliminan de ambas colecciones todos los valores que sean mayores que 10 o menores de -10 y se vuelven a mostrar.
+_________
+
+E1207. Repetir las actividades E1206 y E1206b usando métodos globales.
+
+______________
+
+E1208. Implementar un programa en el que se insertan 20 números aleatorios en una colección. Ésta se ordenará de menor a mayor convirtiéndola antes en tabla y volviéndola a convertir en colección. Repetir el proceso para ordenarla de mayor a menor.
+
+______________
+
+E1209. Crea una lista de números enteros positivos introducidos por consola hasta que se introduzca uno negativo. A continuación recorrer la lista y mostrar por pantalla los índices de los elementos de valor par.
+
+______________
+E1210. Escribir en una lista 20 enteros aleatorios entre 1 y 10. A partir de ella, crear un conjunto con los elementos de la lista sin repetir, otro con los repetidos y otro con los elementos que aparecen una sola vez en la lista original.
+
+Ejemplo:
+2 4 5 3 6 7 8 4 3 2 8 9
+Repetidos: 2 3 4 8
+No repetidos 5 6 7 9
+_________________
+
+E1211. Implementar la clase Socio, cuyos atributos son dni, nombre y fechaAlta, que deberá incluir el método equals(), la interfaz Comparable basada en el dni y el método antiguedad(). Implementar un programa que gestione los socios de un club. Al arrancar la aplicación, se leen los datos del fichero y se abre un menú con las opciones: 1. Alta; 2. Baja; 3. Modificación; 4. Listado por DNI; 5. Listado por antiguedad, y 6. Salir.
+
+_____________
+
+E1212. Implementa en una clase Conjunto un método estático que lleve a cabo la unión de dos conjuntos de elementos genéricos. La unión es un nuevo conjunto con todos los elementos que pertenezcan, al menos a uno de los dos conjuntos.
+Implementa en otro método genérico la intersección, formada por los elementos comunes a los dos conjuntos. Los prototipos de los métodos son:
+
+static <E> Set<E> union(Set<E> conjunto1, Set<E> conjunto2)
+static <E> Set<E> interseccion(Set<E> conjunto1, Set<E> conjunto2)
+static <E> Set<E> except(Set<E> conjunto1, Set<E> conjunto2)
+_____________
+
+E1213_Sorteo. Implementar la clase Sorteo con parámetros genéricos. Deberá guardar un conjunto de valores distintos de tipo genérico, suministrados por consola y será capaz de generar una combinación premiada de un tamaño determinado. Deberán implementarse. como minimo, los métodos:
+boolean add (T elemento) que añadirá un elemento nuevo al conjunto de valores posibles en una apuesta. Si el elemento se añade, devuelve true y, en caso contrario, debido a que ya estaba presente, false.
+Set<T> premiados (int numPremiados)  que devolverá una combinación ganadora de numPremiados elementos distintos.
+
+E1214_EstMet. Implementar una aplicación que simula el registro de las temperaturas, a lo largo de un dia, en una estación meteorológica. La aplicación mostrará un menú con las opciones:
+Nuevo registro (que introduciremos manualmente, aunque se supone que, en el sistema original estaria controlado por un reloj). Cada registro constará de la temperatura en grados centígrados y la hora, que se leerá del sistema (por consola) en el momento de la creación del registro.
+Listar registros.
+Mostrar estadistica (con los valores máximo. mínimo y promedio de las temperatu
+ras registradas hasta el momento desde la primera lectura del día).
+Salir.
+
+E1215. Implementar una aplicación para gestionar las existencias de una tienda de repuestos de automóviles. Cada producto se identifica por un código alfanumérico. La aplicación permitirá dar de alta o de baja productos y actualizar el número de unidades en stock de cada uno de ellos. Los datos se mantendrán en un fichero que deberá actualizarse al cerrar el programa.
+
+E1216. Los miembros de la Real Academia de la Lengua ocupan sillones con las letras del abecedario español, minúsculas y mayúsculas (en la práctica, las letras v, w, x, y, z, N, W, Y nunca se ocupan, pero nosotros no lo tendremos en cuenta). Cuando un sillón queda vacante, se nombra un nuevo académico para ocuparlo.
+
+Implementar la clase Academico cuyos atributos son el nombre y el año de ingreso. El criterio de ordenación natural será por nombres.
+
+Implementar un programa donde se cargan los datos de los académicos se crean cinco objetos Academico, que se insertan en
+un mapa en el que la clave es la letra del sillón que ocupan, y el valor un objeto de la clase Academico. Para ello implementar el método estático:
+
+static boolean nuevoAcademico (Map<Character, Academico> academia, Academico nuevo, Character letra)
+
+donde se lleva a cabo la inserción después de comprobar que el carácter pasado como
+parámetro es una letra del abecedario.
+
+Hacer diversos listados de los académicos: 
+sin letra, por orden de nombre
+sin letra, por orden de año de ingreso y en caso de empate por nombre
+con letra, por orden de letra (clave), indicando nombre y fecha de ingreso.
+
+========================
+
+DOCUMENTO AP.2 STREAMS:
+
+E1301. Definir una interfaz funcional cuya función abstracta permita generar un saludo dirigido al objeto que se le pasa como parámetro. Implementar un saludo para nombres (clase String) y otro para clientes (clase Cliente). Aplicarlas a varios casos particulares.
+
+E1302. Utilizando la interfaz Saludo de la Actividad E1301, implementar un método estático que aplique un saludo a un grupo de personas que se le pasa como parámetro en una tabla. Devolverá los saludos en una lista de cadenas.
+
+Aplicarlo a una tabla de clientes.
+
+E1303. Implementar un método estático (max) al que se pasa como parámetro una tabla de tipo genérico y un comparador para dicho tipo. El método devuelve el valor máximo de los elementos de la tabla según el criterio de orden del comparador. Aplicarlo a una tabla de clientes para buscar el de más edad.
+E1304. Implementar un método estático (filtrar) al que se pasa como parámetro una tabla de tipo genérico y un predicado. El método devuelve otra tabla con los elementos de la tabla original que verifiquen la condición del predicado. Aplicarlo a una tabla de 50 enteros entre 1 y 100 que devuelve los múltiplos de 3.
+
+Prueba a implementar una versión del método que utilice listas en lugar de arrays.
+
+E1305. Implementar el método estático 
+
+static <T, V> V[] transformar(T[] t, V[] transf, Function<T, V> f)
+
+al que se pasan dos tablas de tipo T y V respectivamente y devuelve o transforma la segunda tabla con los elementos de la primera transformados mediante la función que va en el tercer parámetro.
+
+Escribir un programa que use este método para obtener una tabla con las raíces cuadradas de los elementos de otra.
+
+Adapta el ejercicio anterior para que utilice listas en lugar de arrays implementando el siguiente método:
+
+static <T, V> List<V> transformar(List<T> t, Function<T, V> f)
+
+Fíjate que, a diferencia de lo que ocurría con las tablas, la lista resultante se puede instanciar dentro del método.
+
+E1306. Implementar el método estático
+
+static <T> void paraCada(T[] t, Consumer<T> c)
+
+similar a forEach (que no existe para tablas). Este método ejecuta en cada elemento de la tabla la acción implementada en el método Consumer. Utilízalo para mostrar los nombres y edades de los clientes de una tabla.
+
+
+========================
+
+DOCUMENTO EJERCICIOS:
+UD06.POO Avanzada. Tipos Predefinidos y Colecciones
+Ejercicios
+
+Colecciones
+Paquete: coleccionesejercicios
+
+Contenedores
+EP1211_ContenedorEnteros. Utilizando la clase ContenedorLista definida en la actividad E1202, implementa una aplicación donde se guardan 30 enteros aleatorios entre 1 y 10 y luego ordenan de menor a mayor. La aplicación debe mostrar el contenedor antes y después de ordenar.
+
+A continuación ordena y muestra los elementos de mayor a menor.
+
+EP1212. Añade a la clase ContenedorLista los siguientes métodos:
+    T get (int indice)que devuelve el elemento que ocupa el lugar indice dentro del contenedor.
+    T extract (int indice)que extrae y devuelve el elemento que ocupa el lugar indice dentro del contenedor.
+    int[] buscar Todos (Object e): que devuelve una tabla con los indices de todas las ocurrencias de e.
+    void ordenar (Comparator<T> c) que ordena los elementos del contenedor según el criterio de c.
+    boolean eliminar Todos (Object e): que elimina todas las ocurrencias de e. Devuelve true si la lista queda alterada.
+
+    Escribe una aplicación que pruebe todos estos métodos.
+
+Métodos genéricos
+EP1215. Implementa un método genérico al que se le pasa una lista de valores de la clase genérica T y devuelve otra donde se han eliminado las repeticiones.
+
+EP1230. Implementa una función a la que se pase una lista de objetos y devuelva una copia sin elementos repetidos.
+    <T> List<T> eliminaRepetidos(List<T> lista)
+
+
+EP1232. Implementa la función que realice una copia exacta de una lista.
+    static <E> List<E> clonaLista (List<E>) 
+
+
+Estructuras de datos: Pilas, Colas, etc.
+EP1217. Implementa la clase Cola genérica utilizando un objeto ArrayList para guardar los elementos.
+
+EP1218. Implementa la clase Pila genérica utilizando un objeto ArrayList para guardar los elementos.
+
+EP1231. Implementa las clases Cola y Pila genéricas heredando de ArrayList.
+
+EP1220. Utilizando colecciones, implementa la clase Supercola, que tiene como atributos dos colas para enteros, en las que se encola y desencola por separado. Sin embargo, si una de las colas queda vacía, al llamar a su método desencolar(), se desencola de la otra mientras tenga elementos. Solo cuando las dos colas estén vacías, cualquier llamada a desencolar devolverá null. Escribe un programa con el menú:
+
+    1. Encolar en cola1. 
+    2. Encolar en cola2.
+    3. Desencolar de cola1.
+    4. Desencolar de cola2. 
+    5. Salir
+
+Después de cada operación se mostrará el estado de las dos colas para seguir su evolución.
+
+EP1233. Define la clase ListaOrdenada, que almacena una serie de objetos de tipo genérico E, de forma ordenada, pudiéndose repetir. Los elementos se ordenarán según el orden natural de E o bien con el criterio de orden definido en un comparador que se le pasa al constructor.
+
+Socios
+EP1216. Implementa una aplicación que gestione los socios de un club usando la clase Socio implementada en la Actividad E1211. 
+    En particular, se deberán ofrecer las opciones de alta, baja y modificación de los datos de un socio. Además, se listarán los socios por nombre o por antigüedad en el club.
+
+EP1225. Implementa una aplicación que gestione un club donde se identifica a los socios por un apodo personal y único. 
+De cada socio, además del apodo, se guarda el nombre y su fecha de ingreso en el club. Utiliza un mapa donde las claves serán los apodos y los valores, objetos de la clase Socio. Los datos se guardarán en un fichero llamado “club.dat”, de donde se leerá el mapa al arrancar y donde se volverá a guardar actualizado al salir. Las operaciones se mostrarán en un menú que tendrá las siguientes opciones:
+
+1. Alta socio.
+2. Baja socio.
+3. Modificación socio.
+4. Listar socios por apodo.
+5. Listar socios por antigüedad.
+6. Listar los socios con alta anterior a un año nado.
+7. Salir.
+
+Variados
+
+EP1219. Escribe un programa donde se introduzca por consola una frase que conste exclusivamente de palabras separadas por espacios. 
+Las palabras de la frase se almacenarán en una lista. Finalmente, se mostrarán por pantalla las palabras que estén repetidas y, a continuación, las que no lo estén.
+
+EP1221. Implementa una aplicación donde se insertan 20 números enteros aleatorios distintos, menores que 100, en una colección. 
+Deberán guardarse por orden decreciente a medida que se vayan generando, y se mostrará la colección resultante por pantalla.
+
+EP1224. Implementa una función a la que se le pasen dos listas de enteros ordenadas en sentido creciente y nos devuelva una única lista, también ordenada, fusión de las dos anteriores. 
+Desarrolla el algoritmo de forma no destructiva, es decir, que las listas utilizadas como parámetros de entrada se mantengan intactas.
+
+
+EP1222. Introduce por teclado, hasta que se introduzca “fin”, una serie de nombres, que se insertarán en una colección, de forma que se conserve el orden de inserción y que no puedan repetirse. Al final, la colección se mostrará por pantalla.
+Añade una segunda colección en la que se inserten los nombres manteniendo el orden alfabético.
+
+EP1227. Implementa la función LeeCadena(), con el siguiente prototipo: que lee una cadena por teclado y nos la devuelve en una lista con un carácter en cada elemento.
+
+List<Character> leeCadena()
+
+
+EP1228. Implementa la función uneCadenas, con el siguiente prototipo que devuelve una lista con la concatenación de cad1 y cad2.
+List<Character> uneCadenas(List<Character> cad1, List<Character> cad2)
+
+
+EP1226. Un centro educativo necesita distribuir de forma aleatoria a los alumnos de un curso entre los grupos disponibles para ese curso. 
+Diseña la función que devuelve una lista de listas, cada una de las cuales corresponde a un grupo. 
+Cada nombre de la lista de alumnos se asigna a uno de los grupos.
+
+List<List<String>> repartoAlumnos(List<String> lista, int numGrupos) 
+
+
+
+EP1234. Amplía la Actividad E1214, de forma que se gestionen los registros de temperatura de diferentes días en la misma aplicación. 
+Para ello, implementa un mapa cuyas entradas tendrán como clave la fecha y como valor el conjunto con los registros de un dia. 
+Implementa también un programa que gestione los registros del dia actual y permita visualizar los de un día cualquiera, junto con sus estadísticas. 
+Al arrancar el programa se cargará en memoria el mapa a partir del fichero correspondiente y, al terminar, se volverá a guardar actualizado.
+
+
+EP1235. Con la clase Jornada definida en la Actividad de ampliación EP0928, Implementa una aplicación que gestione las jornadas de los trabajadores de una empresa por medio de colecciones, incluyendo altas y bajas de trabajadores y altas de jornadas, así como el listado de las jornadas de un trabajador. Los datos se guardarán en un fichero binario.
+
+
+EP1236. Repite la Actividad de ampliación EP0932 utilizando una colección para guardar y manipular las Llamadas.
+
+
+EP1237. Queremos gestionar la plantilla de un equipo de fútbol, en la que a cada jugador se le asigna un dorsal que no puede estar repetido. Para ello vamos a crear una estructura de tipo Map cuyas entradas corresponden a los jugadores, con el dorsal como clave y un objeto de la clase Jugador como valor. De cada jugador se guarda el DNI, el nombre, la posición en el campo - para simplificar, los jugadores pueden ser porteros, defensas, centrocampistas y delanteros - y su estatura. Define la clase Jugador y un enumerado para la posición en el campo, e implementa los siguientes métodos estáticos:
+
+static void altaJugador(Map<Integer, Jugador> plantilla, Integer dorsal, Jugador jugador), que añade una entrada al mapa con el dorsal pasado como parámetro y el jugador creado dentro del método.
+static Jugador eliminarJugador(Map<Integer, Jugador> plantilla, Integer dorsal), que elimina la entrada correspondiente al jugador cuyo dorsal se pasa como parámetro. Dicho dorsal desaparece del mapa hasta que se asigne a otro jugador por medio de un alta. El método devuelve el jugador eliminado.
+static void mostrar (Map<Integer, Jugador> plantilla), que muestra una lista de los dorsales con los nombres de los jugadores correspondientes.
+dorsal - jugador
+dorsal2 - jugador2
+…
+
+static void mostrar (Map<Integer, Jugador> plantilla, String posicion), que muestra una lista de los jugadores que comparten una misma posición. Por ejemplo, todos los defensas o todos los delanteros. 
+static boolean editarJugador(Map<Integer, Jugador> plantilla, Integer dorsal, Jugador jugador), que permite modificar los datos de un jugador, excepto su dorsal y su DNI. Devuelve true si el dorsal existe y false en caso contrario.
+
+Festival das Meigas
+Paquete: festivalmeigas
+A vila imaxinaria de San Comadro, en pleno corazón da Galiza máxica, celebra cada ano o seu tradicional Festival das Meigas, onde se organizan concursos de feitizos, se intercambian ingredientes máxicos e se premia ás meigas máis creativas.
+Base de datos de Feitizos:
+Cada feitizo ten un nome, unha lista de ingredientes (que non se poden repetir no mesmo feitizo), e un nivel de dificultade.
+A partir de todos os feitizos rexistrados queremos obter unha colección de todos os ingredientes únicos empregados no festival.
+Xera un listado dos feitizos que se poden facer cunha lista de ingredientes dados.
+Permite listar os 3 ingredientes máis usados en total (pista: podes usar un Map<String, Integer> para contar).
+Métodos para engadir, eliminar ou substituir un ingrediente dun feitizo.
+Xera unha lista de feitizos que utilizan un ingrediente dado.
+
+Rexistro de Meigas:
+Cada meiga ten un nome, un alcume máxico, e unha lista de feitizos favoritos (Os feitizos non se poderán repetir)
+As meigas terán tamén un inventario de ingredientes que almacenará tamén o número de unidades de cada un (pista: podes usar un Map<String, Integer> para contar)
+As meigas poderanse amosar ordenadas por diferentes criterios.
+
+Crea constructores axeitados.
+Crea o método getFeitizosRnd() que seleccione devolva unha colección aleatoria de feitizos a partir da colección que recibe como parámetro.
+Crea o método getIngredientesRnd() seleccione aleatoriamente ingredientes dunha colección que se lle pasa como parámetro e para cada un deles un número aleatorio de unidades entre 1 e un número máximo que tamén se pasa como parámetro.
+Crea un método de instancia lanzarFeitizo(Feitizo) que, en caso de que haxa ingredientes suficientes, imprima o nome da meiga e do feitizo e elimine do inventario os ingredientes utilizados.
+Funcionalidades extra:
+Xerar unha lista de meigas que comparten un mesmo ingrediente nun dos seus feitizos favoritos.
+Implementa un sistema de recomendación: dado un ingrediente, suxerir ás meigas un novo feitizo que o use e que non teñan nos seus favoritos.
+Buscar feitizos que compartan ingredientes
+Recomendar feitizos a meigas segundo ingredientes favoritos.
+Contar cal é o ingrediente máis usado.

@@ -4,7 +4,8 @@ package ud5.oneexamen;
 
 import java.util.Comparator;
 
-public class compCliResolucion implements Comparator{
+@SuppressWarnings("rawtypes")
+public class compCliResolucion implements Comparator {
 
     @Override
     public int compare(Object o1, Object o2) {
@@ -13,5 +14,5 @@ public class compCliResolucion implements Comparator{
 
         return c1.resolucion.compareTo(c2.resolucion);
     }
-    
+
 }

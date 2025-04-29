@@ -4,6 +4,7 @@ package ud5.oneexamen;
 
 import java.util.Comparator;
 
+@SuppressWarnings("rawtypes")
 public class compHosts implements Comparator {
 
     @Override
@@ -14,5 +15,5 @@ public class compHosts implements Comparator {
         return h1.nombre.compareTo(h2.nombre);
 
     }
-    
+
 }

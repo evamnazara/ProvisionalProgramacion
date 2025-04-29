@@ -59,8 +59,9 @@ public class ej4_setyList {
 
         // Si quisierams borrar a tom
         // nombres.get(2); no funciona pq no tenemos get
-        nombres.remove(2); // no borra nada -> Unlikely argument type int for remove(Object) on a
-                           // Collection<String>
+        // nombres.remove(2); // no borra nada -> Unlikely argument type int for
+        // remove(Object) on a
+        // Collection<String>
         nombres.remove("Tom");
 
         Set<Alumnos> dam = new HashSet<>();

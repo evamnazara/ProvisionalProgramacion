@@ -8,8 +8,6 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collection;
 import java.util.HashMap;
-import java.util.HashSet;
-import java.util.Iterator;
 
 /* Base de datos de Feitizos: 
 Cada feitizo ten un nome, unha lista de ingredientes (que non se poden repetir 
@@ -97,11 +95,12 @@ public class Feitizo {
     public static List<Feitizo> feitizosUsanIngrediente(String ingrediente) {
         List<Feitizo> feitizos = Arrays.asList(crearFeitizosExemplo());
         for (Feitizo f : feitizos) {
-            
+
         }
         return null;
     }
-    //original sin el collection
+
+    // original sin el collection
     public static List<Feitizo> feitizosPosibles(Set<String> ingredientes, Collection<Feitizo> feitizos) {
         List<Feitizo> feitizosPosibles = new ArrayList<>();
 
@@ -111,13 +110,15 @@ public class Feitizo {
             }
         }
 
-        /*List<Feitizo> feitizos = Arrays.asList(crearFeitizosExemplo());
-
-        for (Feitizo f : feitizos) {
-            if (feitizos.contains(ingredientes)) {
-                feitizosPosibles.add(f);
-            }
-        }*/
+        /*
+         * List<Feitizo> feitizos = Arrays.asList(crearFeitizosExemplo());
+         * 
+         * for (Feitizo f : feitizos) {
+         * if (feitizos.contains(ingredientes)) {
+         * feitizosPosibles.add(f);
+         * }
+         * }
+         */
         return feitizosPosibles;
     }
 
@@ -163,9 +164,9 @@ public class Feitizo {
         Feitizo[] feitizos = crearFeitizosExemplo();
 
         System.out.println(ingredientesUnicos(List.of(feitizos)));
-        //System.out.println(ingredientesVecesUsados(List.of(feitizos)));
-        String[] ingredientes = {"auga do mar", "salicornia", "berberechos místicos"};
-        System.out.println(feitizosPosibles(Set.of(ingredientes),List.of(crearFeitizosExemplo())));
+        // System.out.println(ingredientesVecesUsados(List.of(feitizos)));
+        String[] ingredientes = { "auga do mar", "salicornia", "berberechos místicos" };
+        System.out.println(feitizosPosibles(Set.of(ingredientes), List.of(crearFeitizosExemplo())));
 
     }
 

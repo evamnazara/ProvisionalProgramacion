@@ -1,4 +1,6 @@
-cuando se usan las clases estaticas 
+cuando se usan las clases estaticas --> si van en un fichero con un main 
+check en los constructores, a la hora de declarar listas q se haga como Collecion, o la llamada en el  constructor puede no funcionar
+
 diferencias entre map set list hash 
     heredados de (Collection<E>)
         List<E> -> ArrayList PERMITE  
@@ -26,6 +28,30 @@ Métodos básicos interfaz Collection:
         boolean hasNext()
         E next()
         default void remove()
+
+MÉTODOS DE MAPA:
+Métodos básicos de los mapas (interfaz Map<K,V>):
+V put(K key, V value)
+V remove(Object key)
+void clear()
+V get(Object key)
+boolean containsKey(Object key)
+boolean containsValue(Object value)
+
+Vistas de claves, valores y entradas:
+Set<K> keySet()
+Collection<V> values()
+Set<Map.Entry<K,V>> entrySet()
+
+* Podemos iterar sobre las vistas para eliminar entradas del mapa con el método remove() del iterador.
+
+Método de la interfaz Map.Entry<K,V>:
+K getKey()
+V getValue()
+V setValue(V value)
+
+_____________
+
 
 
 QUITAR REPETIDOS: ej ejericio 1205 
