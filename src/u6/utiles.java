@@ -4,6 +4,13 @@ import java.util.*;
 
 public class utiles {
     public static void main(String[] args) {
+        // separar valores de un string.
+        String texto = "manzana pera plátano kiwi";
+        String[] arrayPalabras = texto.split(" ");
+
+        ArrayList<String> listaPalabras = new ArrayList<>(Arrays.asList(arrayPalabras));
+        ArrayList<String> lista = new ArrayList<>(Arrays.asList(texto.split(" ")));
+
         // CONVERSIONES:
 
         // 1. De un Array a un ArrayList

@@ -1,4 +1,4 @@
-package ejerciciosmapas;
+package u6.ejerciciosmapas;
 
 import java.util.Map;
 import java.util.Scanner;
@@ -143,7 +143,7 @@ public class E1215_Existencias {
 
         } while (opcion != 0); // Se repite hasta que el usuario elige salir
 
-        sc.close(); // Cerramos el scanner al final
+        sc.close();
     }
 
     // Método que muestra el menú y devuelve la opción elegida

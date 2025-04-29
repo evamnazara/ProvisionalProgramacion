@@ -1,4 +1,4 @@
-package ejercicios;
+package u6.ejerciciosmapas;
 /*EP1237. Queremos gestionar la plantilla de un equipo de fútbol, en la que a cada jugador se le asigna un dorsal que no puede estar repetido. 
 Para ello vamos a crear una estructura de tipo Map cuyas entradas corresponden a los jugadores, con el dorsal como clave y un objeto de la clase Jugador como valor. De cada jugador se guarda el DNI, el nombre, la posición en el campo - para simplificar, los jugadores pueden ser porteros, defensas, centrocampistas y delanteros - y su estatura. 
 Define la clase Jugador y un enumerado para la posición en el campo, e implementa los siguientes métodos estáticos:

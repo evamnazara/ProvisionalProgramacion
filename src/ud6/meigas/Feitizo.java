@@ -1,4 +1,4 @@
-package meigas;
+package ud6.meigas;
 
 import java.util.List;
 import java.util.Map;
