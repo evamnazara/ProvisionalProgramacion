@@ -78,8 +78,17 @@ public class Feitizo {
     }
 
     public boolean addIngrediente(String ingrediente) {
+        if (ingrediente == null || ingrediente.isEmpty())
+            return false; // No se permite añadir un ingrediente vacío o nulo
 
-        return true;
+        if (ingredientes == null)
+            ingredientes = new ArrayList<>(); // Si la lista no existe, se crea
+
+        if (!ingredientes.contains(ingrediente)) { // Solo se añade si no está ya
+            ingredientes.add(ingrediente);
+            return true; // Se añadió correctamente
+        }
+        return false; // si ya estaba, no se añade
     }
 
     public boolean removeIngrediente(String ingrediente) {
@@ -88,16 +97,27 @@ public class Feitizo {
     }
 
     public boolean cambiarIngrediente(String ingredienteViejo, String ingredienteNuevo) {
+        if (ingredienteViejo == null || ingredienteNuevo == null || ingredientes == null)
+            return false; // No válido si alguno es nulo
 
-        return true;
+        int posicionIngredente = ingredientes.indexOf(ingredienteViejo); // Buscamos su posición
+        if (posicionIngredente != -1 && !ingredientes.contains(ingredienteNuevo)) {
+            ingredientes.set(posicionIngredente, ingredienteNuevo); // Sustituimos por el nuevo
+            return true;
+        }
+        return false; // si no se encontró, o el nuevo ya estaba
     }
 
     public static List<Feitizo> feitizosUsanIngrediente(String ingrediente) {
+        List<Feitizo> resultado = new ArrayList<>();
         List<Feitizo> feitizos = Arrays.asList(crearFeitizosExemplo());
-        for (Feitizo f : feitizos) {
 
+        for (Feitizo f : feitizos) {
+            if (f.ingredientes != null && f.ingredientes.contains(ingrediente)) {
+                resultado.add(f); // Añadimos si lo contiene
+            }
         }
-        return null;
+        return resultado;
     }
 
     // original sin el collection

@@ -1,0 +1,18 @@
+(parámetros) -> { cuerpo }
+
+() -> System.out.println("Hola mundo")          // Sin parámetros
+x -> x * x                                       // Un parámetro (sin paréntesis)
+(x, y) -> x + y                                  // Dos parámetros
+(String s) -> { return s.length(); }             // Cuerpo con return
+
+// Predicate: filtra pares
+Predicate<Integer> esPar = x -> x % 2 == 0;
+
+// Function: convierte a mayúsculas
+Function<String, String> mayusculas = s -> s.toUpperCase();
+
+// Consumer: imprime
+Consumer<String> imprimir = s -> System.out.println(s);
+
+// Supplier: genera valor
+Supplier<Double> aleatorio = () -> Math.random();
