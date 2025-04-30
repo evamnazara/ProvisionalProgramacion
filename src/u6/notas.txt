@@ -16,7 +16,6 @@ Un set no se puede recorrer como una lista ( lista.get(3)). Hay q usar un iterat
 
 como se hace un mapa
 expresiones lamda
-rehacer meigas desde 0 
 
 METODOS: 
 
@@ -33,7 +32,7 @@ interfaz Collection:
         E next()
         default void remove()
 
- CHULETA DE MÉTODOS DE LA CLASE COLLECTIONS (java.util.Collections)
+CHULETA DE MÉTODOS DE LA CLASE COLLECTIONS (java.util.Collections)
 
 Collections.sort(List<T> lista) -> Ordena la lista según el orden natural de los elementos (requiere que implementen Comparable).
 
