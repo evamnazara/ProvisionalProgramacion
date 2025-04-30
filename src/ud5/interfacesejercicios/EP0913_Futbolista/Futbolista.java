@@ -22,14 +22,12 @@ public class Futbolista {
     Integer edad;
     int numerodeGoles;
 
-
     public Futbolista(String dni, String nombre, int edad, int numerodeGoles) {
         this.dni = dni;
         this.nombre = nombre;
         this.edad = edad;
         this.numerodeGoles = numerodeGoles;
     }
-
 
     @Override
     public boolean equals(Object obj) {
@@ -48,12 +46,11 @@ public class Futbolista {
         return true;
     }
 
-
     @Override
     public String toString() {
         return "\nDNI: " + dni + " | Nombre: " + nombre + " | Edad: " + edad + " | Goles: " + numerodeGoles;
     }
-    
+
     public int compareTo(Object o) {
         Futbolista futbolista = (Futbolista) o;
         int res = dni.compareTo(futbolista.dni);
@@ -62,9 +59,5 @@ public class Futbolista {
         }
         return res;
     }
-    
 
-    
-
-    
 }

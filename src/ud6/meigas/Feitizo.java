@@ -1,4 +1,4 @@
-package ud6.meigas;
+package meigas;
 
 import java.util.List;
 import java.util.Map;
@@ -8,6 +8,7 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collection;
 import java.util.HashMap;
+import java.util.HashSet;
 
 /* Base de datos de Feitizos: 
 Cada feitizo ten un nome, unha lista de ingredientes (que non se poden repetir 
@@ -26,15 +27,14 @@ public class Feitizo {
     private Integer nivelDificultade;
 
     // constructores
-    public Feitizo(String nome, List<String> ingredientes) {
-        this.nome = nome;
-        this.ingredientes = ingredientes;
-    }
 
     public Feitizo(String nome, String[] ingredientes, Integer nivelDificultade) {
         this.nome = nome;
-        this.ingredientes = Arrays.asList(ingredientes);
-        // this.ingredientes = List.of(ingredientes);
+        // this.ingredientes = Arrays.asList(ingredientes); despues esta linea da
+        // problemas porq la lista no se puede alterar
+        // alt: this.ingredientes = List.of(ingredientes);
+
+        this.ingredientes = new ArrayList<>(Arrays.asList(ingredientes)); // Lista mutable
 
         this.nivelDificultade = nivelDificultade;
     }
@@ -78,7 +78,7 @@ public class Feitizo {
     }
 
     public boolean addIngrediente(String ingrediente) {
-        if (ingrediente == null || ingrediente.isEmpty())
+        if (ingrediente.isEmpty())
             return false; // No se permite añadir un ingrediente vacío o nulo
 
         if (ingredientes == null)
@@ -92,8 +92,11 @@ public class Feitizo {
     }
 
     public boolean removeIngrediente(String ingrediente) {
-
-        return true;
+        if (ingredientes != null && ingredientes.contains(ingrediente)) { // comprueba si esta
+            ingredientes.remove(ingrediente); // se elimina ok
+            return true;
+        }
+        return false;
     }
 
     public boolean cambiarIngrediente(String ingredienteViejo, String ingredienteNuevo) {
@@ -156,6 +159,62 @@ public class Feitizo {
         return ingredientesUsados;
     }
 
+    // Contar cal é o ingrediente máis usado.
+    public static String ingredienteMaisUsado(Collection<Feitizo> feitizos) {
+        Map<String, Integer> contador = ingredientesVecesUsados(feitizos);
+
+        String maisUsado = null;
+        int max = 0;
+
+        for (Map.Entry<String, Integer> entry : contador.entrySet()) {
+            if (entry.getValue() > max) {
+                max = entry.getValue();
+                maisUsado = entry.getKey();
+            }
+        }
+        return maisUsado;
+    }
+    // Implementa un sistema de recomendación: dado un ingrediente, suxerir ás
+    // meigas un novo feitizo que o use e que non teñan nos seus favoritos.
+    // Buscar feitizos que compartan ingredientes
+
+    public static List<Feitizo> feitizosConIngredientesComunes(Feitizo base, List<Feitizo> todos) {
+        List<Feitizo> feitizosComparten = new ArrayList<>();
+        for (Feitizo f : todos) {
+            if (f == base) {
+                for (String i : f.getIngredientes()) {
+                    if (base.getIngredientes().contains(i)) {
+                        feitizosComparten.add(f);
+                        break;
+                    }
+                }
+            }
+
+        }
+        return feitizosComparten;
+    }
+
+    // Recomendar feitizos a meigas segundo ingredientes favoritos.
+    public static List<Feitizo> recomendarPorIngredientesFavoritos(Meiga meiga, List<Feitizo> base) {
+        Set<String> favoritos = new HashSet<>();
+        for (Feitizo f : meiga.getFeitizosFavoritos()) {
+            favoritos.addAll(f.getIngredientes());
+        }
+
+        List<Feitizo> recomendados = new ArrayList<>();
+        for (Feitizo f : base) {
+            if (meiga.getFeitizosFavoritos().contains(f))
+                continue;
+            for (String ing : f.getIngredientes()) {
+                if (favoritos.contains(ing)) {
+                    recomendados.add(f);
+                    break;
+                }
+            }
+        }
+        return recomendados;
+    }
+
     @Override
     public String toString() {
         return "Feitizo: " + nome;
@@ -181,12 +240,61 @@ public class Feitizo {
 
     public static void main(String[] args) {
 
-        Feitizo[] feitizos = crearFeitizosExemplo();
+        // Feitizo[] feitizos = crearFeitizosExemplo();
 
-        System.out.println(ingredientesUnicos(List.of(feitizos)));
+        // System.out.println(ingredientesUnicos(List.of(feitizos)));
         // System.out.println(ingredientesVecesUsados(List.of(feitizos)));
-        String[] ingredientes = { "auga do mar", "salicornia", "berberechos místicos" };
-        System.out.println(feitizosPosibles(Set.of(ingredientes), List.of(crearFeitizosExemplo())));
+        // String[] ingredientes = { "auga do mar", "salicornia", "berberechos místicos"
+        // };
+        // System.out.println(feitizosPosibles(Set.of(ingredientes),
+        // List.of(crearFeitizosExemplo())));
+
+        // Crear feitizos de ejemplo
+        Feitizo[] feitizos = crearFeitizosExemplo();
+        List<Feitizo> listaFeitizos = Arrays.asList(feitizos);
+
+        System.out.println("--- Ingredientes únicos ---");
+        System.out.println(ingredientesUnicos(listaFeitizos));
+
+        System.out.println("\n--- Feitizos posibles con ingredientes dados ---");
+        Set<String> misIngredientes = Set.of("auga do mar", "salicornia", "berberechos místicos");
+        System.out.println(feitizosPosibles(misIngredientes, listaFeitizos));
+
+        System.out.println("\n--- Veces que se usan los ingredientes ---");
+        System.out.println(ingredientesVecesUsados(listaFeitizos));
+
+        System.out.println("\n--- Ingrediente máis usado ---");
+        System.out.println(ingredienteMaisUsado(listaFeitizos));
+
+        System.out.println("\n--- Añadir, eliminar y cambiar ingredientes ---");
+        // contructor indefinido -> Feitizo prueba = new Feitizo("Proba Mágica", new
+        // ArrayList<>(List.of("lama dourada", "fume de lareira")), 1);
+        Feitizo prueba = new Feitizo("Proba Mágica", new String[] { "lama dourada", "fume de lareira" }, 1);
+        System.out.println("Original: " + prueba.getIngredientes());
+
+        prueba.addIngrediente("auga bendita");
+        System.out.println("Tras añadir: " + prueba.getIngredientes());
+
+        prueba.removeIngrediente("fume de lareira");
+        System.out.println("Tras eliminar: " + prueba.getIngredientes());
+
+        prueba.cambiarIngrediente("lama dourada", "folla de carballo");
+        System.out.println("Tras cambiar: " + prueba.getIngredientes());
+
+        System.out.println("\n--- Feitizos que usan un ingrediente ---");
+        System.out.println(feitizosUsanIngrediente("auga do mar"));
+
+        System.out.println("\n--- Recomendacións para unha meiga ---");
+
+        // Creamos unha clase Meiga ficticia para probar (debes tener la clase Meiga
+        // creada)
+        Meiga meiga = new Meiga("Morgana");
+        meiga.engadirFeitizoFavorito(feitizos[0]); // Encantamento da Chuvia Mansa
+        meiga.engadirFeitizoFavorito(feitizos[5]); // Bendición Floral
+
+        System.out.println("Favoritos da meiga: " + meiga.getFeitizosFavoritos());
+        List<Feitizo> recomendados = recomendarPorIngredientesFavoritos(meiga, listaFeitizos);
+        System.out.println("Recomendados: " + recomendados);
 
     }
 

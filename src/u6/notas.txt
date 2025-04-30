@@ -1,6 +1,7 @@
-cuando se usan las clases estaticas --> si van en un fichero con un main 
-check en los constructores, a la hora de declarar listas q se haga como Collecion, o la llamada en el  constructor puede no funcionar
-el error de la no enclosing instance of type Futbol is accessible. Must qualify the allocation with an enclosing instance of type Futbol, es porque no hay static en la clase 
+CLASES ESTATICAS: 
+    se usan las clases estaticas si van en un fichero con un main 
+    check en los constructores, a la hora de declarar listas q se haga como Collecion, o la llamada en el  constructor puede no funcionar
+    el error de la no enclosing instance of type Futbol is accessible. Must qualify the allocation with an enclosing instance of type Futbol, es porque no hay static en la clase 
 
 diferencias entre map set list hash 
     heredados de (Collection<E>)
@@ -10,14 +11,16 @@ diferencias entre map set list hash
             TreeSet ordenados con compare + no permite nulos
                 en clase propia hay q implementar comparable
 
+______
+Un set no se puede recorrer como una lista ( lista.get(3)). Hay q usar un iterator
+
 como se hace un mapa
 expresiones lamda
 rehacer meigas desde 0 
 
-no va a haber que hacer referencias a metodos 
+METODOS: 
 
-
-Métodos básicos interfaz Collection:
+interfaz Collection:
     boolean add(E e)
     boolean remove(Object o)
     void clear()
@@ -30,8 +33,36 @@ Métodos básicos interfaz Collection:
         E next()
         default void remove()
 
-MÉTODOS DE MAPA:
-    Métodos básicos de los mapas (interfaz Map<K,V>):
+ CHULETA DE MÉTODOS DE LA CLASE COLLECTIONS (java.util.Collections)
+
+Collections.sort(List<T> lista) -> Ordena la lista según el orden natural de los elementos (requiere que implementen Comparable).
+
+Collections.sort(List<T> lista, Comparator<T> c)  -> Ordena la lista usando un comparador personalizado.
+
+Collections.shuffle(List<?> lista) -> Desordena aleatoriamente los elementos de la lista.
+
+Collections.reverse(List<?> lista) -> Invierte el orden de los elementos de la lista.
+
+Collections.max(Collection<T> col) -> Devuelve el valor máximo de la colección según el orden natural.
+
+Collections.min(Collection<T> col) -> Devuelve el valor mínimo de la colección.
+
+Collections.frequency(Collection<?> col, Object o) -> Cuenta cuántas veces aparece un objeto en la colección.
+
+Collections.singletonList(T o) -> Crea una lista inmutable que contiene solo ese elemento.
+
+Collections.emptyList()  -> Devuelve una lista vacía e inmutable.
+
+Collections.fill(List<? super T> lista, T valor) -> Rellena toda la lista con el mismo valor.
+
+Collections.copy(List<? super T> dest, List<? extends T> src)  -> Copia los elementos de la lista fuente (src) a la lista destino (dest).
+
+Collections.replaceAll(List<T> lista, T antiguo, T nuevo)  -> Reemplaza todas las apariciones de un valor por otro en la lista.
+
+___________________
+
+
+MÉTODOS DE MAPA: (interfaz Map<K,V>):
     V put(K key, V value)
     V remove(Object key)
     void clear()
@@ -39,25 +70,25 @@ MÉTODOS DE MAPA:
     boolean containsKey(Object key)
     boolean containsValue(Object value)
 
-Vistas de claves, valores y entradas:
-Set<K> keySet()
-Collection<V> values()
-Set<Map.Entry<K,V>> entrySet()
+    Vistas de claves, valores y entradas:
+    Set<K> keySet()
+    Collection<V> values()
+    Set<Map.Entry<K,V>> entrySet()
 
-* Podemos iterar sobre las vistas para eliminar entradas del mapa con el método remove() del iterador.
+    * Podemos iterar sobre las vistas para eliminar entradas del mapa con el método remove() del iterador.
 
-Método de la interfaz Map.Entry<K,V>:
-K getKey()
-V getValue()
-V setValue(V value)
+    Método de la interfaz Map.Entry<K,V>:
+    K getKey()
+    V getValue()
+    V setValue(V value)
 
-Imprimir  un mapa: 
+    Imprimir  un mapa: 
 
-static void mostrar(Map<Integer, Jugador> plantilla) {
-            for (Map.Entry<Integer, Jugador> entry : plantilla.entrySet()) {
-                System.out.println(entry.getKey() + " - " + entry.getValue());
+    static void mostrar(Map<Integer, Jugador> plantilla) {
+                for (Map.Entry<Integer, Jugador> entry : plantilla.entrySet()) {
+                    System.out.println(entry.getKey() + " - " + entry.getValue());
+                }
             }
-        }
 
 _____________
 

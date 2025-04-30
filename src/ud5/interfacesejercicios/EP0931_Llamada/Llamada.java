@@ -27,17 +27,21 @@ public class Llamada implements Comparable<Llamada> {
     boolean saliente;
     LocalDateTime fechaInicioLlamada;
     LocalDateTime fechaFinLlamada;
-    
-    enum ZonaInterlocutor {ZONA1, ZONA2, ZONA3, ZONA4, ZONA5}
+
+    enum ZonaInterlocutor {
+        ZONA1, ZONA2, ZONA3, ZONA4, ZONA5
+    }
+
     ZonaInterlocutor zona;
-    
+
     static final double tarifaZona1 = 0.01;
     static final double tarifaZona2 = 0.02;
     static final double tarifaZona3 = 0.03;
     static final double tarifaZona4 = 0.04;
     static final double tarifaZona5 = 0.05;
-    
-    public Llamada(String telefonoCliente, String telefonoInterlocutor, boolean saliente, LocalDateTime fechaInicioLlamada, LocalDateTime fechaFinLlamada, ZonaInterlocutor zona) {
+
+    public Llamada(String telefonoCliente, String telefonoInterlocutor, boolean saliente,
+            LocalDateTime fechaInicioLlamada, LocalDateTime fechaFinLlamada, ZonaInterlocutor zona) {
         this.telefonoCliente = telefonoCliente;
         this.telefonoInterlocutor = telefonoInterlocutor;
         this.saliente = saliente;
@@ -45,13 +49,14 @@ public class Llamada implements Comparable<Llamada> {
         this.fechaFinLlamada = fechaFinLlamada;
         this.zona = zona;
     }
-    
+
     public long getDuracionMinutos() {
         return Duration.between(fechaInicioLlamada, fechaFinLlamada).toMinutes();
     }
-    
+
     public double setTarifaCliente() {
-        if (!saliente) return 0.0;
+        if (!saliente)
+            return 0.0;
         double tarifaCliente = 0.0;
         switch (zona) {
             case ZONA1:
@@ -73,13 +78,12 @@ public class Llamada implements Comparable<Llamada> {
         System.out.println("Tarifa: " + tarifaCliente);
         return tarifaCliente;
     }
-    
+
     @Override
     public String toString() {
-        return "Llamada de " + telefonoCliente + " a " + telefonoInterlocutor + " | Inicio: " + fechaInicioLlamada + " | Duración: " + getDuracionMinutos() + " min | Costo: " + setTarifaCliente() + "€";
+        return "Llamada de " + telefonoCliente + " a " + telefonoInterlocutor + " | Inicio: " + fechaInicioLlamada
+                + " | Duración: " + getDuracionMinutos() + " min | Costo: " + setTarifaCliente() + "€";
     }
-    
-    
 
     @Override
     public boolean equals(Object obj) {
@@ -101,7 +105,9 @@ public class Llamada implements Comparable<Llamada> {
     @Override
     public int compareTo(Llamada otra) {
         int comparacionTelefono = this.telefonoCliente.compareTo(otra.telefonoCliente);
-        if (comparacionTelefono != 0) return comparacionTelefono;
+        if (comparacionTelefono != 0)
+            return comparacionTelefono;
         return this.fechaInicioLlamada.compareTo(otra.fechaInicioLlamada);
     }
+
 }

@@ -1,4 +1,4 @@
-package ud6.ejercicios;
+package ejercicios;
 
 import java.util.Arrays;
 

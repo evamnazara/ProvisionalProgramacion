@@ -1,4 +1,4 @@
-package ud6.ejerciciosmapas;
+package ejerciciosmapas;
 
 /*E1216. Los miembros de la Real Academia de la Lengua ocupan sillones con las letras del abecedario español, minúsculas y mayúsculas (en la práctica, las letras v, w, x, y, z, N, W, Y nunca se ocupan, pero nosotros no lo tendremos en cuenta). Cuando un sillón queda vacante, se nombra un nuevo académico para ocuparlo.
 

@@ -1,47 +1,39 @@
 APUNTES 6.1 COLECCIONES:
 
-E1201_MetodosGenericos. Implementar un método genérico estático que realice la inserción de un objeto al final de una tabla, ambos del mismo tipo genérico, que se pasan como parámetros. Devuelve una nueva tabla con el resultado de la inserción.
-
-public static <U> U[] add(U e, U[] t)
+E1201_MetodosGenericos. método genérico estático - inserción de un objeto al final de una tabla, ambos del mismo tipo genérico, que se pasan como parámetros. 
+    Devuelve una nueva tabla con el resultado de la inserción. public static <U> U[] add(U e, U[] t)
     
-Implementa un método genérico que devuelva true si un elemento se encuentra en un array y false en caso contrario.
+    método genérico que devuelva true si un elemento se encuentra en un array y false en caso contrario.
+    public static <U> boolean buscar(U e, U[] t)
+    
+    método genérico estático- parámetros dos tablas con elementos del mismo tipo genérico y devuelve una nueva tabla con los elementos de ambas concatenados (los de la segunda después de los de la primera).
+        public static <U> U[] concatenar(U[] t1, U[] t2)
+        public static <U, V> Object[] concatenar2(U[] t1, V[] t2)
 
-public static <U> boolean buscar(U e, U[] t)
+E1202. Implementar genéricos, la clase ContenedorLista, donde podremos guardar tantos objetos como deseemos. 
+    tabla amaño cero y se irá redimensionando según añadamos o eliminemos elementos. 
+    La clase, además del constructor y toString(), tendrá los siguientes métodos:
+        void insertarAlPrincipio(T nuevo)
+        void insertarAlFinal(T nuevo)
+        T extraerDelPrincipio()
+        T extraerDelFinal()
+        void ordenar()
 
-Implementa un método genérico estático al que se le pasan como parámetros dos tablas con elementos del mismo tipo genérico y devuelve una nueva tabla con los elementos de ambas concatenados (los de la segunda después de los de la primera).
-
-public static <U> U[] concatenar(U[] t1, U[] t2)
-
-public static <U, V> Object[] concatenar2(U[] t1, V[] t2)
-
-E1202. Implementar, con tipos genéricos, la clase ContenedorLista, donde podremos guardar tantos objetos como deseemos. Para ello utilizaremos una tabla, que inicialmente tendrá tamaño cero y se irá redimensionando según añadamos o eliminemos elementos. La clase, además del constructor y toString(), tendrá los siguientes métodos:
-void insertarAlPrincipio(T nuevo)
-void insertarAlFinal(T nuevo)
-T extraerDelPrincipio()
-T extraerDelFinal()
-void ordenar()
-
-E1203. Define la interfaz Pila con parámetros genéricos. A continuación, implementa la interfaz Pila genérica en la clase ContenedorLista. Deberá tener dos métodos genéricos: 
+E1203. interfaz Pila con parámetros genéricos. + lectura x teclado y bucle
+A continuación, implementa la interfaz Pila genérica en la clase ContenedorLista. Deberá tener dos métodos genéricos: 
 public void apilar(T e);
 public T desapilar();
 
-Por último, escribe un programa donde se utilice un objeto contenedor como pila. En ella apilamos números enteros positivos leídos del teclado hasta que se introduzca un -1. Después, mediante un bucle, se desapilan todos los números hasta que la pila esté vacía y los mostramos por consola.
-
-
-Define la interfaz Cola con parámetros genéricos. A continuación, implementa también la interfaz Cola genérica en la clase ContenedorLista. Deberá tener dos métodos genéricos: 
+interfaz Cola con parámetros genéricos. A continuación, implementa también la interfaz Cola genérica en la clase ContenedorLista. Deberá tener dos métodos genéricos: 
 public void encolar(T e);
 public T desencolar();
 
-Por último, escribe un programa donde se utilice un objeto contenedor como cola. En ella encolamos números enteros positivos leídos del teclado hasta que se introduzca un -1. Después, mediante un bucle, se desencolan todos los números hasta que la cola esté vacía y los mostramos por consola.
-
 _________
-E1204. Implementar una aplicación que pida por consola números enteros no negativos hasta que se introduce un -1. Los números se irán insertando en una colección, pudiéndose repetir. Al terminar, se mostrará la colección por pantalla. 
-A continuación, se mostrarán todos los valores pares. Por último, se eliminarán todos los múltiplos de 3 y se mostrará por pantalla la colección resultante.
-Practica el uso de iteradores y bucles for-each para recorrer la colección.
 
-2 5 2 7 9 3 6 7 8 -1 
+E1204. consola hasta -1  enteros no negativos. Los números se irán insertando en una colección, pudiéndose repetir. Al terminar, se mostrará la colección por pantalla. 
+A continuación, se mostrarán todos los valores pares. Por último, se eliminarán todos los múltiplos de 3 y se mostrará por pantalla la colección resultante. (iteradores y foreach)
 
-E1205. Implementar una aplicación en la que se insertan en una colección 100 números enteros aleatorios entre 1 y 10 (incluídos), que pueden estar repetidos. A continuación, se crea una lista con los mismos elementos sin repeticiones.
+E1205. 100 números enteros aleatorios entre 1 y 10 (incluídos), que pueden estar repetidos. A continuación, se crea una lista con los mismos elementos sin repeticiones.
 
 E1206. Implementar una aplicación donde se insertan 100 números enteros aleatorios entre 1 y 10 (incluidos), que pueden estar repetidos, en una colección. Después se eliminan todos los elementos que valen 5. Mostrar la colección antes y después de la eliminación.
 
@@ -83,31 +75,15 @@ E1213_Sorteo. Implementar la clase Sorteo con parámetros genéricos. Deberá gu
 boolean add (T elemento) que añadirá un elemento nuevo al conjunto de valores posibles en una apuesta. Si el elemento se añade, devuelve true y, en caso contrario, debido a que ya estaba presente, false.
 Set<T> premiados (int numPremiados)  que devolverá una combinación ganadora de numPremiados elementos distintos.
 
-E1214_EstMet. Implementar una aplicación que simula el registro de las temperaturas, a lo largo de un dia, en una estación meteorológica. La aplicación mostrará un menú con las opciones:
-Nuevo registro (que introduciremos manualmente, aunque se supone que, en el sistema original estaria controlado por un reloj). Cada registro constará de la temperatura en grados centígrados y la hora, que se leerá del sistema (por consola) en el momento de la creación del registro.
+E1214_EstMet. menú con las opciones:
+Nuevo registro. Cada registro constará de la temperatura en grados centígrados y la hora, que se leerá del sistema (por consola) en el momento de la creación del registro.
 Listar registros.
-Mostrar estadistica (con los valores máximo. mínimo y promedio de las temperatu
-ras registradas hasta el momento desde la primera lectura del día).
+Mostrar estadistica (con los valores máximo. mínimo y promedio de las temperaturas registradas hasta el momento desde la primera lectura del día).
 Salir.
 
 E1215. Implementar una aplicación para gestionar las existencias de una tienda de repuestos de automóviles. Cada producto se identifica por un código alfanumérico. La aplicación permitirá dar de alta o de baja productos y actualizar el número de unidades en stock de cada uno de ellos. Los datos se mantendrán en un fichero que deberá actualizarse al cerrar el programa.
 
-E1216. Los miembros de la Real Academia de la Lengua ocupan sillones con las letras del abecedario español, minúsculas y mayúsculas (en la práctica, las letras v, w, x, y, z, N, W, Y nunca se ocupan, pero nosotros no lo tendremos en cuenta). Cuando un sillón queda vacante, se nombra un nuevo académico para ocuparlo.
-
-Implementar la clase Academico cuyos atributos son el nombre y el año de ingreso. El criterio de ordenación natural será por nombres.
-
-Implementar un programa donde se cargan los datos de los académicos se crean cinco objetos Academico, que se insertan en
-un mapa en el que la clave es la letra del sillón que ocupan, y el valor un objeto de la clase Academico. Para ello implementar el método estático:
-
-static boolean nuevoAcademico (Map<Character, Academico> academia, Academico nuevo, Character letra)
-
-donde se lleva a cabo la inserción después de comprobar que el carácter pasado como
-parámetro es una letra del abecedario.
-
-Hacer diversos listados de los académicos: 
-sin letra, por orden de nombre
-sin letra, por orden de año de ingreso y en caso de empate por nombre
-con letra, por orden de letra (clave), indicando nombre y fecha de ingreso.
+E1216.  Academia
 
 ========================
 
@@ -138,11 +114,6 @@ static <T, V> List<V> transformar(List<T> t, Function<T, V> f)
 
 Fíjate que, a diferencia de lo que ocurría con las tablas, la lista resultante se puede instanciar dentro del método.
 
-E1306. Implementar el método estático
-
-static <T> void paraCada(T[] t, Consumer<T> c)
-
-similar a forEach (que no existe para tablas). Este método ejecuta en cada elemento de la tabla la acción implementada en el método Consumer. Utilízalo para mostrar los nombres y edades de los clientes de una tabla.
 
 
 ========================
@@ -248,7 +219,6 @@ List<List<String>> repartoAlumnos(List<String> lista, int numGrupos)
 EP1234. Amplía la Actividad E1214, de forma que se gestionen los registros de temperatura de diferentes días en la misma aplicación. 
 Para ello, implementa un mapa cuyas entradas tendrán como clave la fecha y como valor el conjunto con los registros de un dia. 
 Implementa también un programa que gestione los registros del dia actual y permita visualizar los de un día cualquiera, junto con sus estadísticas. 
-Al arrancar el programa se cargará en memoria el mapa a partir del fichero correspondiente y, al terminar, se volverá a guardar actualizado.
 
 
 EP1235. Con la clase Jornada definida en la Actividad de ampliación EP0928, Implementa una aplicación que gestione las jornadas de los trabajadores de una empresa por medio de colecciones, incluyendo altas y bajas de trabajadores y altas de jornadas, así como el listado de las jornadas de un trabajador. Los datos se guardarán en un fichero binario.
@@ -268,30 +238,3 @@ dorsal2 - jugador2
 
 static void mostrar (Map<Integer, Jugador> plantilla, String posicion), que muestra una lista de los jugadores que comparten una misma posición. Por ejemplo, todos los defensas o todos los delanteros. 
 static boolean editarJugador(Map<Integer, Jugador> plantilla, Integer dorsal, Jugador jugador), que permite modificar los datos de un jugador, excepto su dorsal y su DNI. Devuelve true si el dorsal existe y false en caso contrario.
-
-Festival das Meigas
-Paquete: festivalmeigas
-A vila imaxinaria de San Comadro, en pleno corazón da Galiza máxica, celebra cada ano o seu tradicional Festival das Meigas, onde se organizan concursos de feitizos, se intercambian ingredientes máxicos e se premia ás meigas máis creativas.
-Base de datos de Feitizos:
-Cada feitizo ten un nome, unha lista de ingredientes (que non se poden repetir no mesmo feitizo), e un nivel de dificultade.
-A partir de todos os feitizos rexistrados queremos obter unha colección de todos os ingredientes únicos empregados no festival.
-Xera un listado dos feitizos que se poden facer cunha lista de ingredientes dados.
-Permite listar os 3 ingredientes máis usados en total (pista: podes usar un Map<String, Integer> para contar).
-Métodos para engadir, eliminar ou substituir un ingrediente dun feitizo.
-Xera unha lista de feitizos que utilizan un ingrediente dado.
-
-Rexistro de Meigas:
-Cada meiga ten un nome, un alcume máxico, e unha lista de feitizos favoritos (Os feitizos non se poderán repetir)
-As meigas terán tamén un inventario de ingredientes que almacenará tamén o número de unidades de cada un (pista: podes usar un Map<String, Integer> para contar)
-As meigas poderanse amosar ordenadas por diferentes criterios.
-
-Crea constructores axeitados.
-Crea o método getFeitizosRnd() que seleccione devolva unha colección aleatoria de feitizos a partir da colección que recibe como parámetro.
-Crea o método getIngredientesRnd() seleccione aleatoriamente ingredientes dunha colección que se lle pasa como parámetro e para cada un deles un número aleatorio de unidades entre 1 e un número máximo que tamén se pasa como parámetro.
-Crea un método de instancia lanzarFeitizo(Feitizo) que, en caso de que haxa ingredientes suficientes, imprima o nome da meiga e do feitizo e elimine do inventario os ingredientes utilizados.
-Funcionalidades extra:
-Xerar unha lista de meigas que comparten un mesmo ingrediente nun dos seus feitizos favoritos.
-Implementa un sistema de recomendación: dado un ingrediente, suxerir ás meigas un novo feitizo que o use e que non teñan nos seus favoritos.
-Buscar feitizos que compartan ingredientes
-Recomendar feitizos a meigas segundo ingredientes favoritos.
-Contar cal é o ingrediente máis usado.

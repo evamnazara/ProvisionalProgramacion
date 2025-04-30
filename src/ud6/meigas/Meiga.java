@@ -1,4 +1,4 @@
-package ud6.meigas;
+package meigas;
 
 import java.util.ArrayList;
 import java.util.Collection;
@@ -18,6 +18,8 @@ public class Meiga {
 
     public Meiga(String nome) {
         this.nome = nome;
+        this.feitizosFavoritos = new ArrayList<>(); // Aseguramos que la lista esté inicializada
+
     }
 
     public Meiga(String nome, String alcumeMaxico) {
@@ -30,7 +32,8 @@ public class Meiga {
         this.nome = nome;
         this.alcumeMaxico = alcumeMaxico;
         // this.feitizosFavoritos = feitizosFavoritos;
-        this.feitizosFavoritos = new ArrayList<>(feitizosFavoritos);
+        // this.feitizosFavoritos = new ArrayList<>(feitizosFavoritos); NO ESTA VACIA
+        this.feitizosFavoritos = new ArrayList<>();
 
     }
 
@@ -40,6 +43,28 @@ public class Meiga {
         this.alcumeMaxico = alcumeMaxico;
         this.feitizosFavoritos = new ArrayList<>(feitizosFavoritos); // otra vez
         this.inventario = inventario;
+    }
+
+    public String getNome() {
+        return nome;
+    }
+
+    public String getAlcumeMaxico() {
+        return alcumeMaxico;
+    }
+
+    public List<Feitizo> getFeitizosFavoritos() {
+        return feitizosFavoritos;
+    }
+
+    public Map<String, Integer> getInventario() {
+        return inventario;
+    }
+
+    public void engadirFeitizoFavorito(Feitizo f) {
+        if (!feitizosFavoritos.contains(f)) {
+            feitizosFavoritos.add(f);
+        }
     }
 
     // e. seleccione devolva unha colección aleatoria de feitizos a partir da
@@ -73,6 +98,33 @@ public class Meiga {
 
         return ingredientesAleatorios;
     }
+
+    // Xerar unha lista de meigas que comparten un mesmo ingrediente nun dos seus
+    // feitizos favoritos.
+    public static List<Meiga> meigasCompartenIngrediente(List<Meiga> meigas, String ingrediente) {
+        List<Meiga> compartenIngredientes = new ArrayList<>();
+        for (Meiga meiga : meigas) {
+            for (Feitizo f : meiga.getFeitizosFavoritos()) {
+                if (f.getIngredientes().contains(ingrediente)) {
+                    compartenIngredientes.add(meiga);
+                }
+            }
+        }
+        return compartenIngredientes;
+    }
+
+    // Implementa un sistema de recomendación: dado un ingrediente, suxerir ás
+    // meigas un novo feitizo que o use e que non teñan nos seus favoritos.
+    public static List<Feitizo> recomendarFeitizosPorIngrediente(List<Feitizo> base, Meiga meiga, String ingrediente) {
+        List<Feitizo> recomendados = new ArrayList<>();
+        for (Feitizo feitizo : base) {
+            if (feitizo.getIngredientes().contains(ingrediente) && !meiga.getFeitizosFavoritos().contains(feitizo)) {
+                recomendados.add(feitizo);
+            }
+        }
+        return recomendados;
+    }
+
     /*
      * g. Crea un método de instancia lanzarFeitizo(Feitizo) que, en caso de que
      * haxa ingredientes suficientes, imprima o nome da meiga e do feitizo e elimine

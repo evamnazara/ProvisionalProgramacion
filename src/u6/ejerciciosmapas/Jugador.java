@@ -71,7 +71,7 @@ public class Jugador {
 
     @Override
     public String toString() {
-        return "Jugador: \nDNI: " + dni + "\nNombre: " + nombre + "\nPosicion: " + posicion + "\nEstatura:"
+        return "\n Jugador: \nDNI: " + dni + "\nNombre: " + nombre + "\nPosicion: " + posicion + "\nEstatura:"
                 + estatura;
     }
 
@@ -116,7 +116,7 @@ public class Jugador {
         // Buscamos si el dorsal existe en el mapa
         if (plantilla.containsKey(dorsal)) {
             Jugador jugadorExistente = plantilla.get(dorsal);
-            // Solo actualizamos nombre, posición y estatura
+            // actualizamos nombre, posición y estatura
             jugadorExistente.setNombre(jugador.getNombre());
             jugadorExistente.setPosicion(jugador.getPosicion());
             jugadorExistente.setEstatura(jugador.getEstatura());
@@ -125,7 +125,7 @@ public class Jugador {
 
     public static void main(String[] args) {
         // antes de nada, hayq eu implementar el hashmap
-
+        // treeMap te lo ordena
         Map<Integer, Jugador> plantilla = new HashMap<>();
 
         // creo 2 jugadores
@@ -134,13 +134,21 @@ public class Jugador {
         // is an instance of Futbol). -- se arregla PONIENDO EL STATIC EN LA CLASE
         Jugador j1 = new Jugador("12345678A", "Pedro", Posicion.DEFENSA, 1.82);
         Jugador j2 = new Jugador("12345678A", "Pedro", Posicion.DEFENSA, 1.82);
+        Jugador j3 = new Jugador("12678A", "Antonio", Posicion.CENTROCAMPISTA, 1.42);
 
         Jugador.altaJugador(plantilla, 1, j1);
         Jugador.altaJugador(plantilla, 2, j2);
         Jugador.mostrar(plantilla);
+
         // es un enum, asi q en la implementacion del metodo se cambia del valor del
         // string
+        System.out.println("Lista de jugadores:");
+        System.out.println(plantilla);
+
         Jugador.mostrar(plantilla, "defensa");
+
+        Jugador.editarJugador(plantilla, 2, j3);
+        Jugador.mostrar(plantilla, "CENTROCAMPISTA");
     }
 
 }

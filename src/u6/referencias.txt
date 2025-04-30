@@ -5,6 +5,8 @@ E1204: iterator: quitar múltiplos / pares + consola -1
 E1205: lista rnd sin repetidos.
 E1206: lista rnd sin el numero 5
 E1206B: lista -100/100 separando positivos y negativos + sumatorios de ambos + borrar ciertos elementos
+EP1226: crea una lista de listas, de x numeros de alumnos escogidos aleatoriamente
+
 
 
 E1305 _ filtrar - ejercicio de predicados, metodo al q se el pasa una tabla generica y un predicado, y el metodo devuelve los elementos que verifiquen la condicion del predicado

@@ -1,4 +1,4 @@
-package ud6.ejercicios;
+package ejercicios;
 
 /*E1212. Implementar un método estático que lleve a cabo la unión de dos conjuntos de 
 elementos genéricos. La unión es un nuevo conjunto con todos los elementos que 
