@@ -286,8 +286,6 @@ public class Feitizo {
 
         System.out.println("\n--- Recomendacións para unha meiga ---");
 
-        // Creamos unha clase Meiga ficticia para probar (debes tener la clase Meiga
-        // creada)
         Meiga meiga = new Meiga("Morgana");
         meiga.engadirFeitizoFavorito(feitizos[0]); // Encantamento da Chuvia Mansa
         meiga.engadirFeitizoFavorito(feitizos[5]); // Bendición Floral

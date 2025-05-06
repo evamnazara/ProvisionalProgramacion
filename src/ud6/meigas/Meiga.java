@@ -134,6 +134,8 @@ public class Meiga {
      * de esa lista
      */
 
+    
+     //tiene q devolver la suma de las dificultades
     public void lanzarFeitizo(Feitizo feitizo) {
         // Verifica si el hechizo está entre sus favoritos
         if (!feitizosFavoritos.contains(feitizo)) {
@@ -162,7 +164,7 @@ public class Meiga {
             }
         }
 
-        // Si tiene todos los ingredientes, los descuenta del inventario
+        // Si tiene todos los ingredientes, los descuenta del inventario, y si llega a 0, se elimina
         for (Map.Entry<String, Integer> entry : ingredientesNecesarios.entrySet()) {
             String ingrediente = entry.getKey();
             int necesario = entry.getValue();

@@ -20,6 +20,10 @@ public class E1205 {
 
         // como no queremos duplcados, hashset
         // directamente la clase ya no admite duplicados
+        getSinRepetidos(numeros);
+    }
+
+    private static void getSinRepetidos(Collection<Integer> numeros) {
         Collection<Integer> sinRepetidos = new HashSet<>();
         for (Integer numero : numeros) {
             sinRepetidos.add(numero);
