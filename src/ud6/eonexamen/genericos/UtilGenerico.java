@@ -18,7 +18,8 @@ vez. */
  
 public class UtilGenerico<T> {
     
-     static <T> Collection repetidos(Collection<T> conjunto1) {
+     @SuppressWarnings("rawtypes")
+    static <T> Collection repetidos(Collection<T> conjunto1) {
         Set<T> sinRepetidos = new HashSet<>(conjunto1);
         for (T o : conjunto1) {
             sinRepetidos.add(o);
@@ -35,6 +36,7 @@ unha colección de elementos de un tipo T, un elemento del mismo tipo y un
 comparator y devuelve una subcolección con los elementos de la colección original 
 que sean mayores o iguales que el recibido según el criterio del comparator.   */
 
+    @SuppressWarnings("rawtypes")
     static <T> Collection filtrarmayores(Collection <T> conj1, Collection<T> conj2, Comparator<T> comp) {
         //return Arrays.sort(conj1, conj2, comp);
         return null;

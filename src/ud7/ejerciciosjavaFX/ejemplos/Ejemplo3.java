@@ -1,4 +1,4 @@
-package ud7.ejemplos;
+package ud7.ejerciciosjavaFX.ejemplos;
 
 import javafx.application.Application;
 import javafx.scene.Scene;

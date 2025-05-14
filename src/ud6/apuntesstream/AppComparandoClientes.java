@@ -1,10 +1,10 @@
-package apuntesstream;
+package ud6.apuntesstream;
 
 import java.util.Collections;
 import java.util.Comparator;
 import java.util.List;
 
-import apuntescolecciones.Cliente;
+import ud6.apuntescolecciones.Cliente;
 
 public class AppComparandoClientes {
     public static void main(String[] args) {

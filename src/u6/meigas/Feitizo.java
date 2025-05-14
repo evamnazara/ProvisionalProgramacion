@@ -100,6 +100,7 @@ public class Feitizo {
         return new Feitizo[] { f1, f2, f3, f4, f5, f6 };
     }
 
+    @SuppressWarnings("unused")
     public static void main(String[] args) {
 
         Feitizo[] feitizos = crearFeitizosExemplo();

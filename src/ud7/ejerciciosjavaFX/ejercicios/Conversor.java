@@ -1,4 +1,4 @@
-package ud7.ejercicios;
+package ud7.ejerciciosjavaFX.ejercicios;
 /*
  * Conversor. 
  * Crea una aplicación que permita convertir cantidades de un sistema de medida a otro
