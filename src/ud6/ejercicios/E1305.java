@@ -9,7 +9,7 @@ Escribir un programa que use este método para obtener una tabla con las raíces
 cuadradas de los elementos de otra. 
  */
 
-package ejercicios;
+ package ud6.ejercicios;
 
 import java.util.ArrayList;
 import java.util.List;

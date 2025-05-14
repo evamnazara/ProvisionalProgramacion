@@ -1,11 +1,11 @@
-package apuntesstream;
+package ud6.apuntesstream;
 
 import java.util.List;
 import java.util.function.Consumer;
 import java.util.function.Function;
 import java.util.function.Predicate;
 
-import apuntescolecciones.Cliente;
+import ud6.apuntescolecciones.Cliente;
 
 public class AppInterfacesFuncionales {
     public static void main(String[] args) {

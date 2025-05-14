@@ -1,9 +1,9 @@
-package apuntesstream;
+package ud6.apuntesstream;
 
 import java.util.Arrays;
 import java.util.List;
 import java.util.function.Predicate;
-import apuntescolecciones.Cliente;
+import ud6.apuntescolecciones.Cliente;
 import java.util.ArrayList;
 
 public class E1304_filtrar {

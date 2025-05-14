@@ -1,4 +1,4 @@
-package ejercicios;
+package ud6.ejercicios;
 
 import java.util.*;
 

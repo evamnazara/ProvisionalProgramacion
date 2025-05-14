@@ -4,7 +4,7 @@ Diseña la función
     que devuelve una lista de listas, cada una de las cuales corresponde a un grupo. Cada nombre de la lista de alumnos se asigna a uno de los grupos.
  */
 
-package ejercicios;
+ package ud6.ejercicios;
 
 import java.util.ArrayList;
 import java.util.Collections;

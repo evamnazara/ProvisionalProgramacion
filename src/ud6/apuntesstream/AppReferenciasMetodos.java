@@ -1,4 +1,4 @@
-package apuntesstream;
+package ud6.apuntesstream;
 /*
  * import java.util.Arrays;
  * import java.util.Comparator;

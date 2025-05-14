@@ -1,10 +1,10 @@
-package apuntesstream;
+package ud6.apuntesstream;
 
 import java.util.ArrayList;
 import java.util.Comparator;
 import java.util.List;
 
-import apuntescolecciones.Cliente;
+import ud6.apuntescolecciones.Cliente;
 
 public class e1301_Saludar {
     /*

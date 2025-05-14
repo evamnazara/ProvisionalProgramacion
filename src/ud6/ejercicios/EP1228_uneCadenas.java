@@ -1,4 +1,4 @@
-package ejercicios;
+package ud6.ejercicios;
 
 import java.util.*;
 /*EP1228. Implementa la función uneCadenas, con el siguiente prototipo que devuelve una lista con la concatenación de cad1 y cad2.
