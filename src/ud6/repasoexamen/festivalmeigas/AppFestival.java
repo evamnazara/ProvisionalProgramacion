@@ -1,4 +1,4 @@
-package repasoexamen.festivalmeigas;
+package ud6.repasoexamen.festivalmeigas;
 
 import java.util.ArrayList;
 import java.util.Arrays;

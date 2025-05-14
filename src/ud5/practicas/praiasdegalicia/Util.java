@@ -1,5 +1,4 @@
-package praiasdegalicia;
-
+package ud5.practicas.praiasdegalicia;
 import java.io.BufferedReader;
 import java.io.FileReader;
 import java.io.IOException;

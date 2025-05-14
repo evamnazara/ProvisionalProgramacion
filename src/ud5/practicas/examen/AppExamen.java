@@ -1,4 +1,4 @@
-package examen;
+package ud5.practicas.examen;
 
 public class AppExamen {
     public static void main(String[] args) {

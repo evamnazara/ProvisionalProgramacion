@@ -1,5 +1,4 @@
-package mulleres;
-
+package ud5.practicas.mulleres;
 
 public class Politica extends MullerTraballadora {
     String causa;

@@ -1,4 +1,4 @@
-package Inmobiliaria;
+package ud5.practicas.Inmobiliaria;
 
 
 public class Casa extends Inmueble {

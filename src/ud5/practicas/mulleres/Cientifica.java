@@ -1,4 +1,4 @@
-package mulleres;
+package ud5.practicas.mulleres;
 
 public class Cientifica extends MullerTraballadora implements IPioneira {
 

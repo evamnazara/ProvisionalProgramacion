@@ -19,10 +19,12 @@ public class Empregado {
     /**
      * Atributo do apelido do empregado
      */
+    @SuppressWarnings("unused")
     private String apelido;
     /**
      * Atributo do salario do empregado
      */
+    @SuppressWarnings("unused")
     private double soldo;
 
     /**
@@ -65,6 +67,7 @@ public class Empregado {
      *         <li>falso: o nome non é unha cadea baleira</li>
      *         </ul>
      */
+    @SuppressWarnings("unused")
     private boolean comprobar() {
         // Comprobar se o nome non está baleiro
         if (nome == null || nome.equals("")) {

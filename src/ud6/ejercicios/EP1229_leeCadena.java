@@ -1,4 +1,4 @@
-package ejercicios;
+package ud6.ejercicios;
 
 /*
 EP1227. Implementa la función LeeCadena(), con el siguiente prototipo: que lee una cadena por teclado y nos la devuelve en una lista con un carácter en cada elemento.
@@ -11,6 +11,7 @@ public class EP1229_leeCadena {
     // Función que lee una cadena desde el teclado y la convierte en una lista de
     // caracteres
     public static List<Character> leeCadena() {
+        @SuppressWarnings("resource")
         Scanner lector = new Scanner(System.in);
 
         System.out.print("Introduce una cadena de texto: ");

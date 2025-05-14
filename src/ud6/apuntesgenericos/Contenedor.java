@@ -1,4 +1,4 @@
-package apuntesgenericos;
+package ud6.apuntesgenericos;
 
 class Contenedor<T> {
 

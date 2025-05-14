@@ -1,4 +1,4 @@
-package apuntescolecciones;
+package ud6.apuntescolecciones;
 
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;

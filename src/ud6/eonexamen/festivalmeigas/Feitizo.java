@@ -1,5 +1,5 @@
 //Eva María Otero Názara 
-package eonexamen.festivalmeigas;
+package ud6.eonexamen.festivalmeigas;
 
 import java.util.Arrays;
 import java.util.Collection;

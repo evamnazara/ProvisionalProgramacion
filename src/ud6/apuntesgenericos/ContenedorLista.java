@@ -1,4 +1,4 @@
-package apuntesgenericos;
+package ud6.apuntesgenericos;
 
 import java.util.Arrays;
 import java.util.Comparator;

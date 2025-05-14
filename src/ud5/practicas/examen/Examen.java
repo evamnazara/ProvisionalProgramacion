@@ -1,4 +1,4 @@
-package examen;
+package ud5.practicas.examen;
 
 public class Examen {
     private String titulo;

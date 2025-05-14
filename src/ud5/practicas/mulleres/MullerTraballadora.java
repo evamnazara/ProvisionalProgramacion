@@ -1,4 +1,5 @@
-package mulleres;
+package ud5.practicas.mulleres;
+
 
 public abstract class MullerTraballadora {
     protected String nome;

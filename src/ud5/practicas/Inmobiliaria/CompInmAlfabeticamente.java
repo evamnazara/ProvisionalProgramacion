@@ -1,4 +1,5 @@
-package Inmobiliaria;
+package ud5.practicas.Inmobiliaria;
+
 
 import java.util.Comparator;
 

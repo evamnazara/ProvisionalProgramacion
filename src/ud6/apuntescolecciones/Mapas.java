@@ -1,4 +1,4 @@
-package apuntescolecciones;
+package ud6.apuntescolecciones;
 
 import java.util.Collection;
 import java.util.HashMap;

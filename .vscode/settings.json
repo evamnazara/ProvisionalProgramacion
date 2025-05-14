@@ -1,0 +1,9 @@
+{
+    "java.project.sourcePaths": [
+        "src"
+    ],
+    "java.project.referencedLibraries": [
+        "d:\\eoternaza\\REPO MIO\\ProvisionalProgramacion\\lib\\junit-platform-console-standalone-1.11.3.jar",
+        "d:\\eoternaza\\REPO MIO\\ProvisionalProgramacion\\lib\\gson-2.10.1.jar"
+    ]
+}

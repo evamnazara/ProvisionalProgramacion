@@ -1,4 +1,4 @@
-package repasoexamen.genericos;
+package ud6.repasoexamen.genericos;
 
 import java.util.*;
 

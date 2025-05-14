@@ -1,5 +1,5 @@
 //con ejercicio 2 
-package Inmobiliaria;
+package ud5.practicas.Inmobiliaria;
 
 import java.util.Arrays;
 import java.util.Comparator;

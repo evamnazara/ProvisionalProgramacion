@@ -1,6 +1,7 @@
 //Eva María Otero Názara 
 
-package eonexamen.genericos;
+package ud6.
+eonexamen.genericos;
 
 import java.util.ArrayList;
 import java.util.Arrays;

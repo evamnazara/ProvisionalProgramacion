@@ -1,4 +1,4 @@
-package apuntesgenericos;
+package ud6.apuntesgenericos;
 
 @SuppressWarnings("rawtypes")
 class ClaseGenericaDeComparables<T extends Comparable> {
