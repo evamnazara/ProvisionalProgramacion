@@ -5,5 +5,6 @@
     "java.project.referencedLibraries": [
         "d:\\eoternaza\\REPO MIO\\ProvisionalProgramacion\\lib\\junit-platform-console-standalone-1.11.3.jar",
         "d:\\eoternaza\\REPO MIO\\ProvisionalProgramacion\\lib\\gson-2.10.1.jar"
-    ]
+    ],
+    "java.jdt.ls.vmargs": "-XX:+UseParallelGC -XX:GCTimeRatio=4 -XX:AdaptiveSizePolicyWeight=90 -Dsun.zip.disableMemoryMapping=true -Xmx2G -Xms100m -Xlog:disable"
 }

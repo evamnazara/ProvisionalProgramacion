@@ -1,5 +1,6 @@
 package ud7.apuntesjavafx.empresas;
 
+import java.io.File;
 import java.net.URL;
 import java.util.ResourceBundle;
 
@@ -8,6 +9,8 @@ import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.ListView;
 import javafx.scene.control.TextField;
+import javafx.stage.FileChooser;
+import javafx.stage.FileChooser.ExtensionFilter;
 
 public class EmpresaController implements Initializable {
 
@@ -25,6 +28,7 @@ public class EmpresaController implements Initializable {
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
+
         lstEmpresas.getItems().addAll(AppEmpresa.empresas);
 
         lstEmpresas.getSelectionModel().selectedItemProperty().addListener(
@@ -44,10 +48,13 @@ public class EmpresaController implements Initializable {
             e.setNombre(txtNombre.getText());
             e.setWeb(txtWeb.getText());
 
-            // TODO Actualizar listview más quirúrgicamente
-            lstEmpresas.getItems().clear();
-            lstEmpresas.getItems().addAll(AppEmpresa.empresas);
+            actualizarListView();
         }
+    }
+
+    private void actualizarListView() {
+        lstEmpresas.getItems().clear();
+        lstEmpresas.getItems().addAll(AppEmpresa.empresas);
     }
 
     @FXML
@@ -66,5 +73,69 @@ public class EmpresaController implements Initializable {
         AppEmpresa.empresas.remove(new Empresa(id));
         lstEmpresas.getItems().remove(new Empresa(id));
     }
+
+    @FXML
+    void guardarFichero(ActionEvent event) {
+        AppEmpresa.guardarFichero(AppEmpresa.ficheroEmpresas);
+        actualizarListView();
+    }
+
+    @FXML
+    void cargarFichero(ActionEvent event) {
+        AppEmpresa.cargarFichero(AppEmpresa.ficheroEmpresas);
+        actualizarListView();
+    }
+
+    @FXML
+    void guardarComo(ActionEvent event) {
+        FileChooser fileChooser = new FileChooser();
+        fileChooser.setTitle("Guardar como...");
+        fileChooser.setInitialDirectory(new File(AppEmpresa.ficheroEmpresas));
+        fileChooser.getExtensionFilters().addAll(
+                new ExtensionFilter("CSV files", "*.csv"),
+                new ExtensionFilter("Text Files", "*.txt"),
+                new ExtensionFilter("Image Files", "*.png", "*.jpg", "*.gif"),
+                new ExtensionFilter("Audio Files", "*.wav", "*.mp3", "*.aac"),
+                new ExtensionFilter("All Files", "*.*"));
+        File selectedFile = fileChooser.showSaveDialog(AppEmpresa.stagePrincipal);
+        if (selectedFile != null) {
+            AppEmpresa.guardarFichero(selectedFile.toString());
+            actualizarListView();
+        }
+    }
+
+    @FXML
+    void abrir(ActionEvent event) {
+        FileChooser fileChooser = new FileChooser();
+        fileChooser.setTitle("Abrir...");
+        fileChooser.setInitialDirectory(new File(AppEmpresa.ficheroEmpresas));
+        fileChooser.getExtensionFilters().addAll(
+                new ExtensionFilter("CSV files", "*.csv"));
+        File selectedFile = fileChooser.showSaveDialog(AppEmpresa.stagePrincipal);
+        if (selectedFile != null) {
+            AppEmpresa.cargarFichero(selectedFile.toString());
+            actualizarListView();
+            AppEmpresa.guardarFichero(selectedFile.toString());
+        }
+    }
+
+    @FXML
+    void guardarFicheroDat(ActionEvent event) {
+        FileChooser fileChooser = new FileChooser();
+        fileChooser.setTitle("Guardar como...");
+        fileChooser.setInitialDirectory(new File(AppEmpresa.ficheroEmpresas));
+        fileChooser.getExtensionFilters().addAll(
+                new ExtensionFilter("CSV files", "*.csv"),
+                new ExtensionFilter("Text Files", "*.txt"),
+                new ExtensionFilter("Image Files", "*.png", "*.jpg", "*.gif"),
+                new ExtensionFilter("Audio Files", "*.wav", "*.mp3", "*.aac"),
+                new ExtensionFilter("All Files", "*.*"));
+        File selectedFile = fileChooser.showSaveDialog(AppEmpresa.stagePrincipal);
+        if (selectedFile != null) {
+            AppEmpresa.guardarFichero(selectedFile.toString());
+            actualizarListView();
+        }
+    }
+
 
 }
