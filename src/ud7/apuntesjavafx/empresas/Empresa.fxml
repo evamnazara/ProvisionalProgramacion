@@ -13,7 +13,7 @@
 
 <BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ud7.apuntesjavafx.empresas.EmpresaController">
    <center>
-      <AnchorPane prefHeight="418.0" prefWidth="600.0" BorderPane.alignment="CENTER">
+      <AnchorPane prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER">
          <children>
             <Label layoutX="38.0" layoutY="56.0" text="ID" />
             <TextField fx:id="txtId" layoutX="91.0" layoutY="52.0" />
@@ -29,9 +29,9 @@
             <Button layoutX="37.0" layoutY="160.0" mnemonicParsing="false" onAction="#agregar" text="Agregar" />
             <Button layoutX="37.0" layoutY="188.0" mnemonicParsing="false" onAction="#actualizar" text="Actualizar" />
             <Button layoutX="37.0" layoutY="216.0" mnemonicParsing="false" onAction="#borrar" text="Borrar" />
-            <ListView fx:id="lstEmpresas" layoutX="263.0" layoutY="23.0" prefHeight="326.0" prefWidth="311.0" />
-            <Button layoutX="37.0" layoutY="276.0" mnemonicParsing="false" onAction="#guardarFichero" text="Guardar fichero" />
-            <Button layoutX="37.0" layoutY="311.0" mnemonicParsing="false" onAction="#cargarFichero" prefHeight="25.0" prefWidth="99.0" text="Cargar fichero" />
+            <ListView fx:id="lstEmpresas" layoutX="275.0" layoutY="6.0" prefHeight="361.0" prefWidth="311.0" />
+            <Button layoutX="8.0" layoutY="308.0" mnemonicParsing="false" onAction="#guardarFichero" text="Guardar Fichero DAT" />
+            <Button layoutX="147.0" layoutY="308.0" mnemonicParsing="false" onAction="#cargarFichero" text="Cargar Fichero DAT" />
          </children>
       </AnchorPane>
    </center>
@@ -40,7 +40,7 @@
         <menus>
           <Menu mnemonicParsing="false" text="File">
             <items>
-                  <MenuItem mnemonicParsing="false" onAction="#cargarFichero" text="Abrir..." />
+                  <MenuItem mnemonicParsing="false" onAction="#abrir" text="Abrir..." />
                   <MenuItem mnemonicParsing="false" onAction="#guardarFichero" text="Guardar" />
                   <MenuItem mnemonicParsing="false" onAction="#guardarComo" text="Guardar..." />
               <MenuItem mnemonicParsing="false" text="Close" />

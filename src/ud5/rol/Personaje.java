@@ -1,9 +1,10 @@
 //eva
 package ud5.rol;
 
+import java.io.Serializable;
 import java.util.Random;
 
-public class Personaje {
+public class Personaje implements Serializable {
     final int PUNTOS_VIDA_INICIALES = 50;
     Raza raza;
     String nombre;
