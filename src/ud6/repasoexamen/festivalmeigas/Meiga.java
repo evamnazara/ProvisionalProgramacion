@@ -26,11 +26,9 @@ public class Meiga implements Comparable<Meiga> {
         this.inventario = inventario;
     }
 
-    
     public String getNome() {
         return nome;
     }
-
 
     // EXEMPLO DE USO
     public static Meiga[] crearMeigasExemplo(Feitizo[] feitizosDisponibles) {
@@ -124,13 +122,15 @@ public class Meiga implements Comparable<Meiga> {
                 puntos += feitizo.getDificultade();
 
                 // resta ingredientes
-                /*for (String ingredientes : feitizo.ingredientes) {
-                    if (inventario.get(ingrediente) > 1) {
-                        inventario.put(ingrediente, inventario.get(ingrediente) - 1);
-                    } else {
-                        inventario.remove(ingrediente);
-                    }
-                }*/
+                /*
+                 * for (String ingredientes : feitizo.ingredientes) {
+                 * if (inventario.get(ingrediente) > 1) {
+                 * inventario.put(ingrediente, inventario.get(ingrediente) - 1);
+                 * } else {
+                 * inventario.remove(ingrediente);
+                 * }
+                 * }
+                 */
 
             } else {
                 System.out.println("No puede lanzar el hechizo.");

@@ -1,4 +1,4 @@
-package u6.apuntes;
+package ud6.u6.apuntes;
 
 import java.util.*;
 

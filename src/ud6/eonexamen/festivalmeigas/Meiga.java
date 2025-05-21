@@ -31,7 +31,6 @@ public class Meiga implements Comparable<Meiga> {
         return nome + " (" + alcume + ")\nFeitizos: " + feitizos + "\nInventario: " + inventario.toString();
     }
 
-    
     public Map<String, Integer> getInventario() {
         return inventario;
     }
@@ -94,7 +93,6 @@ public class Meiga implements Comparable<Meiga> {
         return inventario;
     }
 
-
     /*
      * O método lanzarFeitizos() da clase Meiga de xeito que:
      * i. a meiga tentará lanzar cada feitizo unha única vez por orde
@@ -110,7 +108,7 @@ public class Meiga implements Comparable<Meiga> {
      * amosarase unha mensaxe coma a da captura.
      */
 
-     public int lanzarFeitizos() {
+    public int lanzarFeitizos() {
         throw new UnsupportedOperationException(":(");
     }
 
@@ -145,19 +143,18 @@ public class Meiga implements Comparable<Meiga> {
         }
 
         System.out.println(nome + " lanza o feitizo: " + feitizo.getNome());
-        System.out.println("A puntuación total é de: ");
 
+        System.out.println("A puntuación total é de: ");
         dificultades = feitizo.getDificultade();
 
         return dificultades;
         // devuelve suma de dificultades de los hechizos
     }
-    
 
     public List<Feitizo> getFeitizos() {
         return feitizos;
     }
-    
+
     @Override
     public boolean equals(Object obj) {
         if (this == obj)
@@ -201,7 +198,7 @@ public class Meiga implements Comparable<Meiga> {
             public int compare(Meiga o1, Meiga o2) {
                 return 0;
             }
-            
+
         };
 
         // Mostrar as meigas de exemplo
@@ -210,20 +207,18 @@ public class Meiga implements Comparable<Meiga> {
             System.out.println();
         }
 
-        Arrays.sort(meigasExemplo,compMeiga);
+        Arrays.sort(meigasExemplo, compMeiga);
 
         // Lanzar feitizos de exemplo
         // System.out.println(meigasExemplo[0].alcume + " lanzando feitizos de
         // exemplo:");
         // meigasExemplo[0].lanzarFeitizos();
     }
-    
-    
 
     @Override
     public int compareTo(Meiga o) {
         return nome.compareTo(o.nome);
-        
+
     }
 
 }

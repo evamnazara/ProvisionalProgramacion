@@ -1,4 +1,4 @@
-package u6.apuntes.iterator;
+package ud6.u6.apuntes.iterator;
 
 import java.util.ArrayList;
 import java.util.Collection;
@@ -19,7 +19,7 @@ public class e1206b {
         Collection<Integer> negativos = new ArrayList<>();
 
         for (int i = 0; i < 100; i++) {
-            //se declara fuera para poder añadirla en todas las listas
+            // se declara fuera para poder añadirla en todas las listas
             int numRandom = rnd.nextInt(201) - 100;
 
             if (numRandom > 0) {

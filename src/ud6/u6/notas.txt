@@ -1,3 +1,16 @@
+Si quieres comparar numeros restas 
+Si no son numeros usas compareTo
+
+Comparator <Cosa> compAltura  = (j1, j2) -> j1.getEstatura() - j2.getEstatura();
+Comparator <Cosa> compAltura  = (j1, j2) -> j1.getDNI().compareTo.(j2.getDNI());
+
+si va al reves, en el comparator puedes poner .reversed();
+Arrays.sort 
+Collecions.sort
+
+
+
+
 CLASES ESTATICAS: 
     se usan las clases estaticas si van en un fichero con un main 
     check en los constructores, a la hora de declarar listas q se haga como Collecion, o la llamada en el  constructor puede no funcionar

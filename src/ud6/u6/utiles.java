@@ -1,4 +1,4 @@
-package u6;
+package ud6.u6;
 
 import java.util.*;
 

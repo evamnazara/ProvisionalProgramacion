@@ -1,4 +1,4 @@
-package u6.ejerciciosmapas;
+package ud6.u6.ejerciciosmapas;
 
 import java.util.Map;
 import java.util.Scanner;

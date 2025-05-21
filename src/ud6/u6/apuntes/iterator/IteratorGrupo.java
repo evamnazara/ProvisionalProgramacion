@@ -1,4 +1,4 @@
-package u6.apuntes.iterator;
+package ud6.u6.apuntes.iterator;
 
 public class IteratorGrupo {
 
