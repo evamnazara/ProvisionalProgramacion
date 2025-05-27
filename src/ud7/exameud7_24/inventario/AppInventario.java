@@ -1,14 +1,3 @@
-
-/*(2 puntos) El segundo programa, AppInventarioFX.java debe utilizar una interfaz gráfica
-que gestione un inventario de productos almacenado en el fichero inventario.dat y que
-permita:
-● Agregar un nuevo producto al inventario.
-● Listar todos los productos del inventario.
-● Buscar un producto por su código y mostrar su información.
-● Manejar adecuadamente las excepciones, mostrando mensajes de error en la
-interfaz gráfica si ocurre algún problema al leer o escribir los ficheros, buscar un
-producto. */
-
 package ud7.exameud7_24.inventario;
 
 import java.io.FileInputStream;
@@ -22,29 +11,10 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
 
-import javafx.application.Application;
-import javafx.fxml.FXMLLoader;
-import javafx.scene.Parent;
-import javafx.scene.Scene;
-import javafx.stage.Stage;
-
-public class AppInventarioFX extends Application {
+public class AppInventario {
 
     static final String PATH = "src/ud7/exameud7_24/inventario/inventario.dat";
     static List<Producto> inventario = new ArrayList<>();
-
-    @Override
-    public void start(Stage primaryStage) throws Exception {
-        primaryStage.setTitle("Inventario");
-
-        Parent root = FXMLLoader.load(getClass().getResource("Producto.fxml"));
-
-        Scene scene = new Scene(root);
-
-        primaryStage.setScene(scene);
-        primaryStage.setResizable(false);
-        primaryStage.show();
-    }
 
     public static void main(String[] args) {
         // inventario.add(new Producto(3, "Fantasma", 1, 3.50));
@@ -95,14 +65,13 @@ public class AppInventarioFX extends Application {
         }
 
         sc.close();
-        launch();
     }
 
     private static void mostrarInventario() {
         /*
          * Listar Todos los Productos:
-         * Mostrará todos los productos del inventario, uno por cada línea, ordenados
-         * ascendentemente por código.
+         * ● Mostrará todos los productos del inventario, uno por cada línea,
+         * ordenados ascendentemente por código.
          */
 
         for (Producto producto : inventario) {
@@ -112,14 +81,14 @@ public class AppInventarioFX extends Application {
 
     static public void anadirProducto(int cod, String nombre, int cantidad, double precio) {
         // 1. Solicitar al usuario ingresar los datos del producto.
-        System.out.println("mete datos");
-
         // 2. Almacenar el producto en el fichero inventario.dat
         if (buscarProducto(cod) != null || nombre.isEmpty() || nombre == null) {
             System.out.println("f");
         } else {
+            System.out.println("no existe ");
             inventario.add(new Producto(cod, nombre, cantidad, precio));
             guardarFichero(PATH);
+            mostrarInventario();
         }
 
         // 3 No se podrá añadir un producto nuevo si el código ya existe o si elnombre
@@ -151,9 +120,10 @@ public class AppInventarioFX extends Application {
          */
         for (Producto producto : inventario) {
             if (producto.getCodigo() == codigoP) {
+                System.out.println("Ya existe: ");
+                System.out.println(producto);
                 return producto;
             } else {
-                System.out.println("F");
                 return null;
             }
         }

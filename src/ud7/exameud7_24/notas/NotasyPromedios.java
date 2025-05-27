@@ -1,9 +1,12 @@
 package ud7.exameud7_24.notas;
 
 import java.io.BufferedReader;
+import java.io.BufferedWriter;
 import java.io.FileNotFoundException;
 import java.io.FileReader;
+import java.io.FileWriter;
 import java.io.IOException;
+import java.util.Scanner;
 
 /*1. Notas y Promedios (3)
 Paquete: notas
@@ -30,25 +33,54 @@ debe manejar las excepciones correspondientes e imprimir los mensajes de error
 adecuados. */
 public class NotasyPromedios {
 
-    static final String PATH = "src/ud7/exameud7_24/notas";
+    static final String PATH = "src/ud7/exameud7_24/notas/";
+    // ojo a la ultima barra !!
 
     public static void main(String[] args) {
         try {
-            //combinar invocacion anterior con esta 
-            BufferedReader in = new BufferedReader(new FileReader(PATH + "texto.txt")); 
-            int ch = in.read(); //da un numero 
-            //caracter a caracter 
-            while (ch != -1) {
-                System.out.println((char)ch); //castear y leer cada letra en una fila 
-                ch = in.read();
-            }
-            
-        } catch (FileNotFoundException e) { //error de no encontrar 
-            System.out.println(e.getMessage()); //(El sistema no puede encontrar el archivo especificado)
-        } catch (IOException e) { //error de entrada salida 
-            System.out.println(e.getMessage());
-        }
+            // archivo de lectura (notas.txt)
+            BufferedReader in = new BufferedReader(new FileReader(PATH + "notas.txt"));
+            Scanner sc = new Scanner(in);
 
+            // archivo de escritura
+            BufferedWriter out = new BufferedWriter(new FileWriter(PATH + "promedios.txt"));
+
+            // leer linea a linea el archivin
+            while (sc.hasNextLine()) {
+                String linea = sc.nextLine().trim(); // .trim vacio porque no hay nada
+                // if (linea.isEmpty()) {continue;}
+                // partes en un array de strings partiendo por las comas
+                System.out.println("Línea leída: " + linea);
+
+                String[] partes = linea.split(",");
+                String nombre = partes[0].trim();
+
+                int cantidadNotas = 0;
+                int sumaNotas = 0;
+
+                // Se convierte de string a numero y se suman
+                // empiezas desde int=1 pq no te interesa el 0, q es el nobre
+                for (int i = 1; i < partes.length; i++) {
+                    // Double.parseDouble()
+                    int nota = Integer.parseInt(partes[i].trim());
+                    sumaNotas += nota;
+                    cantidadNotas++;
+                }
+                int promedio = sumaNotas / cantidadNotas;
+                // escribes en el archivo de salirda
+                out.write(nombre + ": " + promedio);
+                out.newLine();
+            }
+
+            in.close();
+            sc.close();
+
+            out.close(); // IMPORTANTE
+
+        } catch (FileNotFoundException e) {
+            System.out.println("No se encontró el archivo: " + e.getMessage());
+        } catch (IOException e) {
+            System.out.println("Error de L/E " + e.getMessage());
+        }
     }
-    
 }

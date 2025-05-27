@@ -1,0 +1,3 @@
+Juan Perez: 85
+Maria Lopez: 85
+Carlos Garcia: 75
