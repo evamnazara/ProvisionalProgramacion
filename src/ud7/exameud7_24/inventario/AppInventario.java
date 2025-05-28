@@ -20,7 +20,7 @@ public class AppInventario {
         // inventario.add(new Producto(3, "Fantasma", 1, 3.50));
         // guardarFichero(PATH);
         cargarFicheroDat(PATH); // clueless ....................................
-        mostrarInventario();
+        //mostrarInventario();
         Scanner sc = new Scanner(System.in);
 
         System.out.println("INVENTARIO");
@@ -88,7 +88,7 @@ public class AppInventario {
             System.out.println("no existe ");
             inventario.add(new Producto(cod, nombre, cantidad, precio));
             guardarFichero(PATH);
-            mostrarInventario();
+            //mostrarInventario(); provisional para ver 
         }
 
         // 3 No se podrá añadir un producto nuevo si el código ya existe o si elnombre

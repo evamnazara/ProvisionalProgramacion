@@ -1,4 +1,4 @@
-package ud7.examenUD7;
+package ud7.apuntesjavafx.examenUD7;
 
 import java.net.URL;
 import java.util.ResourceBundle;

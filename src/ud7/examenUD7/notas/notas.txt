@@ -1,3 +1,0 @@
-Juan Perez,80,90,85
-Maria Lopez,75,88,92
-Carlos Garcia,60,70,80,90

@@ -70,6 +70,7 @@ public class NotasyPromedios {
                 // escribes en el archivo de salirda
                 out.write(nombre + ": " + promedio);
                 out.newLine();
+                System.out.println("Medias calculadas en el fichero promedios.txt");
             }
 
             in.close();
