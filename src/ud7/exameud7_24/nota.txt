@@ -1,0 +1,169 @@
+import java.io.*;
+
+public class FormatearNombres {
+    public static void main(String[] args) {
+        String inputFile = "nombres.txt";     // Archivo con la línea original
+        String outputFile = "nombres_salida.txt"; // Archivo de salida
+
+        try (BufferedReader reader = new BufferedReader(new FileReader(inputFile));
+             BufferedWriter writer = new BufferedWriter(new FileWriter(outputFile))) {
+
+            String line;
+            int lineNum = 1;
+            while ((line = reader.readLine()) != null) {
+                String[] partes = line.split(",");
+
+                for (String parte : partes) {
+                    String nombre = parte.trim();
+                    if (!nombre.isEmpty()) {
+                        writer.write(nombre);
+                        writer.newLine();
+                    } else {
+                        System.out.println("Línea " + lineNum + " contiene un nombre vacío.");
+                    }
+                }
+                lineNum++;
+            }
+
+            System.out.println("Archivo formateado correctamente.");
+        } catch (IOException e) {
+            System.err.println("Error al leer o escribir archivo: " + e.getMessage());
+        }
+    }
+}
+
+===========
+
+import java.io.*;
+
+public class FormatearNombres {
+    public static void main(String[] args) {
+        // Nombre del archivo de entrada (con nombres separados por comas)
+        String archivoEntrada = "nombres.txt";
+
+        // Nombre del archivo de salida (con un nombre por línea)
+        String archivoSalida = "nombres_salida.txt";
+
+        // Bloque try-with-resources para manejar automáticamente la apertura y cierre de archivos
+        try (
+            BufferedReader lector = new BufferedReader(new FileReader(archivoEntrada)); // Para leer el archivo de entrada
+            BufferedWriter escritor = new BufferedWriter(new FileWriter(archivoSalida))  // Para escribir en el archivo de salida
+        ) {
+            String linea;
+            int numeroLinea = 1;
+
+            // Leer línea por línea el archivo de entrada
+            while ((linea = lector.readLine()) != null) {
+                // Separar la línea por comas
+                String[] nombresSeparados = linea.split(",");
+
+                // Recorrer cada fragmento separado por coma
+                for (String nombre : nombresSeparados) {
+                    // Eliminar espacios al principio y al final
+                    String nombreLimpio = nombre.trim();
+
+                    // Verificar que no esté vacío antes de escribirlo
+                    if (!nombreLimpio.isEmpty()) {
+                        // Escribir el nombre en el archivo de salida, en una línea nueva
+                        escritor.write(nombreLimpio);
+                        escritor.newLine(); // Saltar a la siguiente línea
+                    } else {
+                        System.out.println("Línea " + numeroLinea + " contiene un nombre vacío.");
+                    }
+                }
+
+                numeroLinea++;
+            }
+
+            System.out.println("Archivo formateado correctamente.");
+        } catch (IOException error) {
+            // En caso de error al leer o escribir archivos
+            System.err.println("Error al leer o escribir archivo: " + error.getMessage());
+        }
+    }
+}
+
+===========
+Qué hace de nuevo este código:
+
+✅ Elimina los números y guiones al inicio de cada nombre.
+✅ Funciona incluso si hay espacios entre número, guion y nombre.
+✅ Soporta múltiples líneas.
+✅ Nombres como 1-Ana, 2 - Pedro, 3– Lucía se limpian todos correctamente.
+
+¿Quieres que también elimine nombres repetidos o los ordene alfabéticamente?
+…y ese formato es consistente, entonces puedes usar substring() para eliminar los primeros caracteres antes del nombre (por ejemplo, "1- " tiene 3 caracteres), lo cual es más simple que usar expresiones regulares.
+
+Aquí tienes una versión simplificada del código usando substring():
+
+import java.io.*;
+
+public class FormatearNombresSimple {
+    public static void main(String[] args) {
+        String archivoEntrada = "nombres_numerados.txt";
+        String archivoSalida = "nombres_salida.txt";
+
+        try (
+            BufferedReader lector = new BufferedReader(new FileReader(archivoEntrada));
+            BufferedWriter escritor = new BufferedWriter(new FileWriter(archivoSalida))
+        ) {
+            String linea;
+            int numeroLinea = 1;
+
+            while ((linea = lector.readLine()) != null) {
+                String[] partes = linea.split(",");
+
+                for (String parte : partes) {
+                    String textoLimpio = parte.trim();
+
+                    // Usamos substring para eliminar los primeros 3 caracteres ("1- ", "2- ", etc.)
+                    // Solo si la longitud es mayor a 3 para evitar errores
+                    if (textoLimpio.length() > 3) {
+                        textoLimpio = textoLimpio.substring(3).trim();
+                    }
+
+                    if (!textoLimpio.isEmpty()) {
+                        escritor.write(textoLimpio);
+                        escritor.newLine();
+                    } else {
+                        System.out.println("Línea " + numeroLinea + " contiene un nombre vacío.");
+                    }
+                }
+
+                numeroLinea++;
+            }
+
+            System.out.println("Archivo formateado correctamente.");
+        } catch (IOException error) {
+            System.err.println("Error al leer o escribir archivo: " + error.getMessage());
+        }
+    }
+}
+
+
+
+si por lo que fuera hay numeros alterados +10
+int posicionGuion = textoLimpio.indexOf("-");
+if (posicionGuion != -1 && posicionGuion + 1 < textoLimpio.length()) {
+    textoLimpio = textoLimpio.substring(posicionGuion + 1).trim();
+}
+
+for (String parte : partes) {
+    String textoLimpio = parte.trim();
+
+    // Buscar el primer guion y eliminar el prefijo (número + guion)
+    int posicionGuion = textoLimpio.indexOf("-");
+    if (posicionGuion != -1 && posicionGuion + 1 < textoLimpio.length()) {
+        textoLimpio = textoLimpio.substring(posicionGuion + 1).trim();
+    }
+
+    if (!textoLimpio.isEmpty()) {
+        escritor.write(textoLimpio);
+        escritor.newLine();
+    } else {
+        System.out.println("Línea " + numeroLinea + " contiene un nombre vacío.");
+    }
+}
+
+
+
