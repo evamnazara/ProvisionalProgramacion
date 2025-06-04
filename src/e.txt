@@ -1,0 +1,175 @@
+public class PalabrasEncadenadas {
+
+    public static boolean estanEncadenadas(String linea) {
+        String[] palabras = linea.split(" ");
+        for (int i = 0; i < palabras.length - 1; i++) {
+            String palabraActual = palabras[i];
+            String siguientePalabra = palabras[i + 1];
+
+            String ultimaSilaba = palabraActual.substring(palabraActual.length() - 2);
+            String primeraSilaba = siguientePalabra.substring(0, 2);
+
+            if (!ultimaSilaba.equals(primeraSilaba)) {
+                return false;
+            }
+        }
+        return true;
+    }
+
+    // Para probar
+    public static void main(String[] args) {
+        System.out.println(estanEncadenadas("gugutata")); // true
+        System.out.println(estanEncadenadas("mata tapa papa pato")); // true
+        System.out.println(estanEncadenadas("seto taco coma matute")); // false
+        System.out.println(estanEncadenadas("cata tasama malote tejaba batama")); // true
+        System.out.println(estanEncadenadas("kiosko comida")); // true
+    }
+}
+
+
+public class PalabrasEncadenadas {
+
+    public static boolean estanEncadenadasValidado(String linea) {
+        if (linea == null) {
+            throw new IllegalArgumentException("Entrada null");
+        }
+
+        linea = linea.trim();
+
+        if (linea.isEmpty()) {
+            throw new IllegalArgumentException("Entrada vacía");
+        }
+
+        String[] palabras = linea.split("\\s+");
+
+        for (String palabra : palabras) {
+            if (palabra.length() < 2) {
+                throw new IllegalArgumentException("Palabra de una letra");
+            }
+            if (palabra.length() > 24) {
+                throw new IllegalArgumentException("Palabra de más de 24 letras");
+            }
+            if (!palabra.matches("[a-z]+")) {
+                if (palabra.matches(".*[A-Z].*")) {
+                    throw new IllegalArgumentException("Palabra con mayúsculas");
+                } else {
+                    throw new IllegalArgumentException("Palabra con caracteres no anglosajones");
+                }
+            }
+        }
+
+        return estanEncadenadas(linea);
+    }
+
+    // Reutilizamos el método simple para comprobar si están encadenadas
+    private static boolean estanEncadenadas(String linea) {
+        String[] palabras = linea.split(" ");
+        for (int i = 0; i < palabras.length - 1; i++) {
+            String palabraActual = palabras[i];
+            String siguientePalabra = palabras[i + 1];
+
+            String ultimaSilaba = palabraActual.substring(palabraActual.length() - 2);
+            String primeraSilaba = siguientePalabra.substring(0, 2);
+
+            if (!ultimaSilaba.equals(primeraSilaba)) {
+                return false;
+            }
+        }
+        return true;
+    }
+
+    // Pruebas rápidas
+    public static void main(String[] args) {
+        try {
+            System.out.println(estanEncadenadasValidado("mata tapa papa pato")); // true
+            System.out.println(estanEncadenadasValidado("seto taco coma matute")); // false
+            System.out.println(estanEncadenadasValidado("null")); // true (cadena "null", válida)
+            System.out.println(estanEncadenadasValidado(null)); // Excepción
+        } catch (IllegalArgumentException e) {
+            System.out.println("Exception: " + e.getMessage());
+        }
+    }
+}
+
+
+
+
+import java.util.Arrays;
+
+public class FechasDivertidas {
+
+    public static boolean fechaDivertida(String fecha) {
+        if (fecha == null || fecha.trim().isEmpty()) {
+            throw new IllegalArgumentException("Fecha no válida");
+        }
+
+        String[] partes = fecha.trim().split("\\s+");
+        if (partes.length != 3) {
+            throw new IllegalArgumentException("Fecha no válida");
+        }
+
+        String dd = partes[0];
+        String mm = partes[1];
+        String aa = partes[2];
+
+        // Validar longitud y contenido numérico
+        if (!dd.matches("\\d{2}") || !mm.matches("\\d{2}") || !aa.matches("\\d{2}")) {
+            throw new IllegalArgumentException("Fecha no válida");
+        }
+
+        int dia = Integer.parseInt(dd);
+        int mes = Integer.parseInt(mm);
+        int anio = Integer.parseInt(aa); // Solo se valida que sea 00–99, pues es 2 cifras
+
+        if (mes < 1 || mes > 12) {
+            throw new IllegalArgumentException("Fecha no válida");
+        }
+
+        if (dia < 1 || dia > diasDelMes(mes, anio)) {
+            throw new IllegalArgumentException("Fecha no válida");
+        }
+
+        // Probar combinaciones
+        String[] elementos = {dd, mm, aa};
+
+        // Probar todas las combinaciones posibles de orden
+        for (int i = 0; i < 3; i++) {
+            for (int j = 0; j < 3; j++) {
+                if (j == i) continue;
+                int k = 3 - i - j;
+                String bloque1 = elementos[i] + elementos[j];
+                String bloque2 = elementos[k] + elementos[(k + 1) % 3]; // uso (k+1)%3 para evitar repetir i o j
+                if (bloque1.length() == 3 && bloque2.length() == 3 && bloque1.equals(bloque2)) {
+                    return true;
+                }
+            }
+        }
+
+        return false;
+    }
+
+    // Días por mes, sin contemplar año bisiesto porque usamos dos dígitos y no se puede validar correctamente
+    private static int diasDelMes(int mes, int anio) {
+        return switch (mes) {
+            case 1, 3, 5, 7, 8, 10, 12 -> 31;
+            case 4, 6, 9, 11 -> 30;
+            case 2 -> 28;
+            default -> 0;
+        };
+    }
+
+    // Para probar
+    public static void main(String[] args) {
+        probar("31 12 23"); // true
+        probar("01 02 03"); // false
+        probar("90 09 99"); // Excepción
+    }
+
+    private static void probar(String fecha) {
+        try {
+            System.out.println("Fecha: " + fecha + " → " + fechaDivertida(fecha));
+        } catch (IllegalArgumentException e) {
+            System.out.println("Fecha: " + fecha + " → Exception(\"" + e.getMessage() + "\")");
+        }
+    }
+}
