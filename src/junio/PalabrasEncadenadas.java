@@ -19,7 +19,17 @@ Salida: true si todas las palabras de la serie están correctamente encadenadas,
 public class PalabrasEncadenadas {
 
     public static boolean esEncadenada(String cad) {
+        if (cad.length() < 1 || cad.length() > 50) {
+            System.out.println("La cadena debe contener entre 1 y 50 palabras");
+            return false;
+        }
+
         String[] palabras = cad.split(" ");
+
+        if (palabras.length < 2 || palabras.length > 24) {
+            System.out.println("Las palabras deben tener entre 2 y 24 carácteres");
+            return false;            
+        }
 
         for (int i = 0; i < palabras.length -1; i++) {
             String palabraActual = palabras[i];
@@ -35,10 +45,10 @@ public class PalabrasEncadenadas {
         }
         return false;
 
-
-
     }
     public static void main(String[] args) {
+        System.out.println(esEncadenada("a"));
+        System.out.println(esEncadenada("aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa"));
         System.out.println(esEncadenada("gugutata"));
         System.out.println(esEncadenada("mata tapa papa pato"));
         System.out.println(esEncadenada("seto taco coma matute")); //f

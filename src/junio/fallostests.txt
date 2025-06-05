@@ -1,0 +1,4 @@
+﻿t5
+	interfaces extensibles 
+
+collections es la clase y collection la interfaz
