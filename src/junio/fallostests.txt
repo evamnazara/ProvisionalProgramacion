@@ -2,3 +2,21 @@
 	interfaces extensibles 
 
 collections es la clase y collection la interfaz
+
+el deterinado de un int es 0 
+
+clases internas.....
+
+System arraycopy ???????????
+
+default del switch noe s obligatoro 
+los () del for son opcionales todos 
+
+
+para que se usa comparator xd 
+palabra de las interfaces 
+
+
+estructura de datos dinamica no se que es la lista
+
+qeu permite scanner 
