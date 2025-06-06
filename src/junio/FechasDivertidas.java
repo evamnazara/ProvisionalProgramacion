@@ -1,7 +1,5 @@
 package junio;
 
-import java.util.Arrays;
-
 /*Pero si se escribe con el formato habitual en los países anglosajones, donde escriben primero el mes, luego el día y finalmente el año, la situación cambia: 12−31−23. Ahora ¡aparece el 123 dos veces seguidas! Es verdad que su forma de escribir las fechas no tiene ningún sentido, porque está desordenada… la "unidad" más pequeña, los días, va en medio, por delante tiene los meses, que es la "unidad" intermedia, y detrás los años, la "unidad" más grande. Pero ¡oye! En este caso este formato da un poco de gracia a una fecha que de otro modo sería insulsa.
 
 Crea un método fechaDivertida() que reciba una cadena con una fecha en formato dd-mm-aa y devuelva:
