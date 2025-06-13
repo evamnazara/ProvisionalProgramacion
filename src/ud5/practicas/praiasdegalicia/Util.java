@@ -1,9 +1,10 @@
 package ud5.practicas.praiasdegalicia;
+
 import java.io.BufferedReader;
 import java.io.FileReader;
 import java.io.IOException;
 
-import com.google.gson.Gson;
+//import com.google.gson.Gson;
 
 public class Util {
     /**
@@ -13,10 +14,14 @@ public class Util {
      * @return Array de Praias
      */
     public static Praia[] importarPraias(String fichero) {
-        Gson gson = new Gson();
-
-        String json = Util.readFileToString(fichero); // contenido JSON;
-        return gson.fromJson(json, Praia[].class);
+        /*
+         * Gson gson = new Gson();
+         * 
+         * String json = Util.readFileToString(fichero); // contenido JSON;
+         * return gson.fromJson(json, Praia[].class);
+         */
+        // linea para q trague
+        return null;
     }
 
     /**

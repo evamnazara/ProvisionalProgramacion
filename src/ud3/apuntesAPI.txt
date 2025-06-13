@@ -4,7 +4,7 @@ JDK - versión del lenguaje
 
 java.lang.String: 
     java - paquete principal   
-    lang - subpaquete
+    lang- subpaquete
     String - clase
 
 La API de Java proporciona un conjunto de clases y métodos que facilitan el desarrollo de aplicaciones en Java, permitiéndote aprovechar la potencia del lenguaje de manera efectiva.
