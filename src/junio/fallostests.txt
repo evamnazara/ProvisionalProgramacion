@@ -18,5 +18,23 @@ palabra de las interfaces
 
 
 estructura de datos dinamica no se que es la lista
+_____________________
 
-qeu permite scanner 
+expresion relacional - tema 2? es > < == = ! 
+el operador new CREA tablas
+tipos mas largos: long y double
+las evaluaciones de una expresion relacional generan valores de tipo booleano  
+
+___________
+
+que diferencia un atributo estatico definido en una clase de otro que no lo es 
+	-- solo existe una copia del atributo en la clase, el no estatico tendra una copia en cada uno 
+
+__________
+
+tema 7 
+	leer una tabla de cadenas de caracteres binarios (ObjectInputStream)
+
+___________
+
+la clase scanner: permite leer y analizar texto de cualquier flujo de entrada de texto 
