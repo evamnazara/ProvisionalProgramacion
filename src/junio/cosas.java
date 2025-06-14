@@ -2,14 +2,22 @@ package junio;
 
 public class cosas {
     public static void main(String[] args) {
-        for (int i = 0; i < 3; i++) {
-            for (int j = 0; j < 2; j++) {
-                if (i % 2 == 0) {
-                    System.out.println("hola");
-                }
-            }
+        int a = 0;
 
+        switch (a + 1) {
+            case 0:
+                a = 2;
+            case 1:
+                a = 3;
+            case 2:
+                a++;
+                break;
+            case 3:
+                a--;
+                break;
         }
+
+        System.out.println(a);
 
     }
 

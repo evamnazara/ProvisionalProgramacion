@@ -11,23 +11,23 @@ public class EjemploBufferedWriter {
     public static void main(String[] args) {
 
         try {
-            //append true hace que se cree el fichero 
-            BufferedWriter out = new BufferedWriter(new FileWriter(PATH + "Quijote.txt",true)); 
-          String linea1 = "En un lugar de La Mancha,";
-          String linea2 = "de cuyo nombre no quiero acordarme.";
-            
-          for (int i = 0; i < linea1.length(); i++) {
-            out.write(linea1.charAt(i));
-          }
+            // append true hace que se cree el fichero
+            BufferedWriter out = new BufferedWriter(new FileWriter(PATH + "Quijote.txt", true));
+            String linea1 = "En un lugar de La Mancha,";
+            String linea2 = "de cuyo nombre no quiero acordarme.";
 
-          out.flush();
-          out.newLine();
+            for (int i = 0; i < linea1.length(); i++) {
+                out.write(linea1.charAt(i));
+            }
 
-          out.write(linea2);
-          out.close();
-        } catch (FileNotFoundException e) { 
+            out.flush();
+            out.newLine();
+
+            out.write(linea2);
+            out.close();
+        } catch (FileNotFoundException e) {
             System.out.println(e.getMessage());
-        } catch (IOException e) { 
+        } catch (IOException e) {
             System.out.println(e.getMessage());
         }
 
