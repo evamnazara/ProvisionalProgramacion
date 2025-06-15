@@ -1,0 +1,31 @@
+2.3. GestionEmbarque
+Haciendo uso de la POO debes diseñar las clases que consideres oportunas (2p.) y luego realizar una  aplicación llamada GestionEmbarque.java que permita controlar el peso que transporta en cada viaje un  transbordador. 
+La aplicación se gestionará mediante un menú (1p.) que tendrá las siguientes opciones:
+
+“Embarca vehículo”: El empleado selecciona la opción "Embarca vehículo" e introduce los datos correspondientes al vehículo: matrícula, número de pasajeros y peso (en el caso de que sea un camión o un autobús). Si ya existe algún vehículo con la misma matrícula, se notifica este hecho y no se añade el vehículo. Si el peso total del vehículo (el propio del vehículo más el de sus pasajeros) hace que se supere la carga máxima soportada por el transbordador, se notifica este hecho y no se añade el vehículo. En otro caso la aplicación añade el vehículo a los  vehículos embarcados en el transbordador. (2.5p.) 
+
+Antes del embarque de un vehículo, la aplicación deberá comprobar que con el peso del nuevo vehículo no se  supera el peso máximo permitido para el transbordador. 
+
+Cada vehículo se identifica por su matrícula y aporta un peso a la carga total del transbordador (carga establecida  al crear el transbordador) que depende del peso del propio vehículo y del de los pasajeros que transporta.  Cuando un vehículo va a embarcar, el empleado cuenta el número de pasajeros que transporta, y además, si el  vehículo es un camión o un autobús procede a su pesado. El peso de los vehículos se calculará de la siguiente  forma: 
+
+
+Turismos: se asume un peso del propio turismo de 1000Kg, a este peso se añadirán 75Kg por cada pasajero que  transporte. 
+Camiones: su peso será el obtenido en su pesado más 75Kg por cada conductor. 
+Autobuses: su peso será el obtenido en su pesado (incluyendo al conductor/es). Más 75Kg por cada pasajero  que transporte. 
+
+“Informe vehículos embarcados”: El empleado selecciona la opción "Informe vehículos embarcados". La aplicación muestra un informe con los siguientes datos de todos los vehículos embarcados y con un formato similar a: (2p.) 
+
+	Turismo: matricula - Pasajeros: nº de pasajeros
+	Camión: matricula - Pasajeros: nº de pasajeros - Peso: pesado del camión
+	Turismo: matricula - Pasajeros: nº de pasajeros
+	Autobús: matricula - Pasajeros: nº de pasajeros - Peso: pesado del autobús
+	… 
+	Peso total embarcado: peso total de los vehículos y pasajeros embarcados 
+
+
+“Reseteo embarque”: El empleado selecciona la opción "Reseteo embarque". La aplicación deja vacío el  transbordador de forma que se pueda comenzar una nueva operación de embarque. (1p.) 
+
+Se controlará que no salten excepciones diseñando el código que se considere, como mínimo se gestionarán las excepciones MatriculaRepetida (no puede haber vehículos con la misma matrícula) (0.5p.) y SuperadoPesoMaximo (el transbordador tiene límite de carga) (0.5p.) utilizando el código propio para manejo de excepciones.  
+
+
+Todos aquellos datos que se puedan declarar como constantes se declararan como tales (0.5p.).  

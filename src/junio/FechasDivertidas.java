@@ -9,30 +9,32 @@ false en otro caso.
 public class FechasDivertidas {
 
     public static void main(String[] args) {
-        System.out.println(fechaDivertida("31 12 23"));
-        System.out.println(fechaDivertida("01 02 03"));
-        System.out.println(fechaDivertida("90 09 99"));
-
-        // System.out.println(Arrays.toString(partes));
-
-        // String fecha = "31 12 23";
-
+        System.out.println(fechaDivertida("31 12 23")); // ✅ true
+        System.out.println(fechaDivertida("01 02 03")); // ❌ false
+        System.out.println(fechaDivertida("23 12 31")); // ✅ true
+        System.out.println(fechaDivertida("90 09 99")); // ❌ false
     }
 
     public static boolean fechaDivertida(String fecha) {
-        String[] partes = fecha.split(" ");
+        String[] partes = fecha.split(" "); // divide en [dd, mm, aa]
 
-        // Probar todas las combinaciones posibles de dos elementos concatenados
+        // Probar las 6 permutaciones posibles de las tres partes
         for (int i = 0; i < 3; i++) {
             for (int j = 0; j < 3; j++) {
-                if (j == i) continue;
-                int k = 3 - i - j;
+                if (j == i)
+                    continue;
+                for (int k = 0; k < 3; k++) {
+                    if (k == i || k == j)
+                        continue;
 
-                String bloque1 = partes[i] + partes[j];
-                String bloque2 = partes[k] + partes[i];
+                    // Concatenamos las 3 partes en un orden específico
+                    String combinacion = partes[i] + partes[j] + partes[k];
 
-                if (bloque1.length() == 3 && bloque2.length() == 3 && bloque1.equals(bloque2)) {
-                    return true;
+                    // Comprobamos si los primeros 3 dígitos son iguales a los últimos 3
+                    if (combinacion.length() == 6 &&
+                            combinacion.substring(0, 3).equals(combinacion.substring(3, 6))) {
+                        return true;
+                    }
                 }
             }
         }

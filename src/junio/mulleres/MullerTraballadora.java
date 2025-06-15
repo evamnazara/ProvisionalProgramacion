@@ -3,8 +3,7 @@ package junio.mulleres;
 public abstract class MullerTraballadora {
     String nome;
     String apelidos;
-    static int anoNacemento;
-
+    int anoNacemento;
 
     public MullerTraballadora(String nome, String apelidos, int anoNacemento) {
         this.nome = nome;
@@ -12,17 +11,12 @@ public abstract class MullerTraballadora {
         this.anoNacemento = anoNacemento;
     }
 
-    public static int getIDade (int anoActual) {
+    public int getIDade(int anoActual) {
         int idade = anoActual - anoNacemento;
 
         return idade;
     }
 
     public abstract String descripcionContribucion();
-
-
-
-    
-
 
 }

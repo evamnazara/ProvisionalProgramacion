@@ -1,4 +1,5 @@
 package junio;
+
 /*
 1.2. Cifrado César
 
@@ -34,20 +35,42 @@ Recorremos el array original con un bucle controlado por contador, concatenando 
  */
 public class CifradoCesar {
     public static void main(String[] args) {
-        //Responde descifrando a frase: Zkcklóxd! Dfzockmrod k zkceo zcëmesmk nk FN3!!!!
+        // Responde descifrando a frase: Zkcklóxd! Dfzockmrod k zkceo zcëmesmk nk
+        // FN3!!!!
         desencriptarCesar("Zkcklóxd! Dfzockmrod k zkceo zcëmesmk nk FN3!!!!", 0);
-        
+
     }
 
-    public static String encriptarCesar(String cadena, int desplazamiento){
-        String textoCifrado;
-        return "";
+    public static String encriptarCesar(String cadena, int desplazamiento) {
+        String textoCifrado = ""; // Empezamos con una cadena vacía
+
+        for (int i = 0; i < cadena.length(); i++) {
+            char letra = cadena.charAt(i); // Obtenemos el carácter en la posición i
+
+            // Comprobamos si es una letra mayúscula
+            if (letra >= 'A' && letra <= 'Z') {
+                // Calculamos la nueva letra con desplazamiento circular
+                char nuevaLetra = (char) ((letra - 'A' + desplazamiento + 26) % 26 + 'A');
+                textoCifrado = textoCifrado + nuevaLetra; // Concatenamos al texto
+            }
+            // Comprobamos si es una letra minúscula
+            else if (letra >= 'a' && letra <= 'z') {
+                // Calculamos la nueva letra con desplazamiento circular
+                char nuevaLetra = (char) ((letra - 'a' + desplazamiento + 26) % 26 + 'a');
+                textoCifrado = textoCifrado + nuevaLetra; // Concatenamos al texto
+            }
+            // Si no es letra, lo dejamos igual
+            else {
+                textoCifrado = textoCifrado + letra; // Concatenamos el carácter original
+            }
+        }
+
+        return textoCifrado;
     }
 
-    
+    // desencriptar, simplemente ciframos con el desplazamiento negativo
     public static String desencriptarCesar(String cadena, int desplazamiento) {
-        return "";
+        return encriptarCesar(cadena, -desplazamiento);
     }
-
 
 }

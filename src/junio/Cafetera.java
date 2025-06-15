@@ -4,9 +4,8 @@ public class Cafetera {
     private int capacidad;
     private int cantidadActual;
 
-    private final int CAPACIDAD_MAXIMA = 1000;
-    private final int CAPACIDAD_MINIMA = 50;
-
+    private static final int CAPACIDAD_MAXIMA = 1000;
+    private static final int CAPACIDAD_MINIMA = 50;
 
     // Constructor predeterminado: establece la capacidad máxima en 1000 (c.c.) y la
     // actual en cero (cafetera vacía).
@@ -17,9 +16,16 @@ public class Cafetera {
 
     // Constructor con la capacidad máxima de la cafetera como parámetro; inicializa
     // la cantidad actual de café igual a la capacidad máxima.
-    public Cafetera(int cantidadActual) {
-        this.capacidad = CAPACIDAD_MAXIMA;
-        this.cantidadActual = cantidadActual;
+    // Constructor con capacidad y cantidad
+    // Constructor con capacidad: llena la cafetera
+    public Cafetera(int capacidad) {
+        if (capacidad < CAPACIDAD_MINIMA)
+            capacidad = CAPACIDAD_MINIMA;
+        if (capacidad > CAPACIDAD_MAXIMA)
+            capacidad = CAPACIDAD_MAXIMA;
+
+        this.capacidad = capacidad;
+        this.cantidadActual = capacidad;
     }
 
     // Constructor con la capacidad máxima y la cantidad actual como parámetros. Si
@@ -31,14 +37,13 @@ public class Cafetera {
         if (capacidad > CAPACIDAD_MAXIMA) {
             this.capacidad = CAPACIDAD_MAXIMA;
         }
-        
+
         if (this.cantidadActual < 0) {
             this.cantidadActual = 0;
-        }
-        else {
+        } else {
             this.cantidadActual = cantidadActual;
         }
-        
+
     }
 
     // Setter para cantidadActual y getters para los dos atributos.
@@ -56,14 +61,20 @@ public class Cafetera {
 
     // hace que la cantidad actual sea igual a la capacidad.
     public void llenarCafetera() {
-        cantidadActual = CAPACIDAD_MAXIMA;
+        cantidadActual = capacidad;
+
     }
 
-    public void servirTaza(int capacidadTaza) {
-        if (capacidadTaza < cantidadActual) {
-            capacidadTaza = cantidadActual;
+    public boolean servirTaza(int capacidadTaza) {
+        if (capacidadTaza < 0)
+            return false;
+
+        if (cantidadActual >= capacidadTaza) {
+            cantidadActual -= capacidadTaza;
+            return true; // taza llena
         } else {
-            cantidadActual =- capacidadTaza;
+            cantidadActual = 0;
+            return false; // no llega
         }
     }
 
@@ -71,16 +82,23 @@ public class Cafetera {
         cantidadActual = 0;
     }
 
-    public void agregarCafe(int cantidad) {
-        if (cantidad + cantidadActual > CAPACIDAD_MAXIMA) {
-            cantidad = CAPACIDAD_MAXIMA;
+    public int agregarCafe(int cantidad) {
+        if (cantidad < 0)
+            return 0;
+
+        int espacioLibre = capacidad - cantidadActual;
+
+        if (cantidad <= espacioLibre) {
+            cantidadActual += cantidad;
+            return 0;
         } else {
-            cantidadActual+= cantidad;
+            cantidadActual = capacidad;
+            return cantidad - espacioLibre;
         }
     }
 
     public void mostrar() {
-        System.out.println("Cafetera: " + cantidadActual + "/" +  capacidad  + "cc. "); 
+        System.out.println("Cafetera: " + cantidadActual + "/" + capacidad + "cc. ");
     }
 
     @Override
