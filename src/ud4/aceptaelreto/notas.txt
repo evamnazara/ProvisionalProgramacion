@@ -1,0 +1,207 @@
+Para este programa en java, revisa el enunciado, corrige algo si ves que hay un error (sin utilizar funciones complicadas como ArrayList, Map, matrices... sólo arrays simples), y añade souts donde sea necesario apra darle sentido al programa y hacerlo amigables con el usuario: 
+
+Resuelve este problema en Java como si fueses un desarrollador novato. Respeta el enunciado, incluye souts que hagan agradable la experiencia de usuario, y no añadas funciones como ArrayList, has, Map, paseo de ningún tipo y utiliza sólo tipos de datos primitivos.
+
+ARRAYS:
+
+- APROBAR QUIMICA: dificil
+    recorrer dos arrays, compararlos y concatenar cadenas 
+
+- De nuevo en el bar de Javier
+    Cálculo de cajas (maximos, minimos, empates)
+
+- Y el ganador es...
+    Crear un array de enteros por teclado, contar numero de globos y decidir ganador o empate 
+
+-Palmeras en la nieve: 
+    calcula la longitud de la franja de máximo 5 palmeras  en pie después de una nevada
+
+- Las cartas del abuelo:
+    erificar si todos los caracteres entre dos posiciones en una cadena escrita por el abuelo son iguales. Para cada intervalo, el programa determina si todos los caracteres entre las posiciones especificadas son iguales o no, y devuelve "SI" o "NO"
+
+- ¿Cuantos días faltan?
+    fácil. Calcular cuantos dias quedan para nochevieja en un año no bisiesto. -- 2 MANERAS DE HACERLO 
+
+- ¿Cuántas me llevo?
+
+
+Problemas de Herencia
+Conjugar verbos
+Prueba del nueve en base N
+Escalera de color
+Va de modas...
+¿Cuál es la siguiente matrícula?
+Cálculo de la Mediana
+La pieza perdida
+Abadías pirenáicas
+El pan en las bodas
+Partido de squash
+Manías tenemos todos
+Molinos de viento
+Embarque en un transatlántico
+Salvemos al lince ibérico
+Pánico en el túnel
+Aprendiendo el código Morse
+Operación asfalto
+La lotería de la peña Atlética
+Entrando al cine
+Aprendiendo a multiplicar
+Los bocadillos de la hormiga reina
+Eligiendo caramelos
+Cuentas paralelas
+Reinas atacadas
+El desgaste de los bombines
+¿Acaso hubo búhos acá?
+Coge el sobre y corre
+Alan Smithee
+Copistas daltónicos
+Desarrollos en las bicicletas
+Palmeras en la nieve
+El teorema del punto fijo
+Teclas del piano
+Parrilla de salida
+Tira y afloja
+La abuela María
+Detectando copiones
+Reina del súper
+El hombre con seis dedos
+¡Los niños primero!
+En la cola de Papá Noel
+Repartiendo regalos en tu calle
+Siete picos
+La justicia de la lotería
+Creciente por los pelos
+El alcance de las historias
+La mejor terminación
+Colocando barcos
+Amigo invisible
+Yonge Street
+Dígitos saltarines
+Michael J. Fox y el Pato Donald
+El secreto de la bolsa
+El Pijote
+El mejor de dos dados
+Bingo infantil
+Tomas inéditas
+Entrando en pelotón
+Multiplicando mal
+El mejor peor día de tu vida
+Lucha de egos
+Conjuritis
+Senda pirenaica
+Turismo de luces
+Pequeña batalla de dados
+Houston, necesito una verificación
+El antepasado meticuloso
+La madriguera del Señor Conejo
+Repartidor de frigoríficos
+Foto con Mafalda
+Próximo tren corto
+Buscando el nivel
+Pipos
+El verdugo
+Haciendo cuentas
+Saltando al otro lado
+Fase final
+Reto de polvorones
+Restaurando películas
+
+
+Para este programa de matrices en java, revisa el enunciado, reescrible variables a valores legibles, 
+corrige algo si ves que hay un error (sin utilizar funciones complicadas como ArrayList, Map... sólo arrays simples y tipos primitivos),
+añade souts donde sea necesario para darle sentido al programa y hacerlo amigables con el usuario: 
+ 
+ Para este programa de matrices en java, resuelve el problema con variables legibles. No utilices funciones como ArrayList, Map... sólo arrays simples, matrices y tipos primitivos),añade souts donde sea necesario para darle sentido al programa y hacerlo amigables con el usuario
+
+
+    MATRICES: 
+Cuadrados diabólicos y esotéricos	
+Marcadores de 7 segmentos	
+Hundir la flota	
+¿Es matriz identidad?	
+Matrices triangulares	
+Campo de minas	
+Las torres perezosas	
+Sudokus vacíos	
+Sombras en el camping	
+Rubik pixel art	
+El cuadrado de Rubik	
+Copistas daltónicos	
+Jugando al Buscaminas	
+La comida de los pollitos	
+Siete de un golpe	
+Sudokus correctos	
+Ovejas negras	
+Escapando de las fuerzas imperiales	
+Presupuestando semáforos	
+El cuello de los pilotos	
+El hombre sin miedo y sin radar	
+Altura final en Tetris	
+Modificación de tablas	
+Desbloqueo retro	
+Concurso de simetrías	
+Diagonal creciente	
+Snake	
+Puntos de silla	
+Pantallas de carga	
+Espiral galáctica
+
+
+
+Para este programa de Strings en java, revisa el enunciado, reescrible variables a valores legibles,  corrige algo si ves que hay un error (sin utilizar funciones complicadas como StringBuilder, ArrayList, Map... sólo Strings y Arrays simples y tipos primitivos), añade souts donde sea necesario para darle sentido al programa y hacerlo amigables con el usuario: 
+ 
+Para este programa de Strings en java, resuelve el problema con variables legibles y funciones sencillas. Añade comentarios con los pasos que sigues, no utilices parseo de ningun tipo ni funciones como StringBuilder, ArrayList, Map... sólo Strings y Arrays simples y tipos primitivos). Añade souts donde sea necesario para darle sentido al programa y hacerlo amigables con el usuario.
+STRINGS:
+
+
+Encriptación de mensajes
+Códigos de barras
+Estrofas
+La fiesta aburrida
+Conjugar verbos
+¿Cuál es la siguiente matrícula?
+Súmale uno
+Carrera popular
+Quinto milenio
+Anélidos
+Potitos
+Encadenando palabras
+Primo de riesgo
+Aprendiendo el código Morse
+¿Acaso hubo búhos acá?
+Ada, Alan y compañía
+Alan Smithee
+Teclas del piano
+Galos, romanos y otras gentes
+Espionaje en Navidad
+La farsante de Mary Poppins
+Pistas de aterrizaje
+Trifelios
+Nana al bebé de papá y mamá
+Yo soy tu...
+El Pijote
+Esgritura
+Camellos, serpientes y kebabs
+Abuelas falsas
+Base raíz de 10
+Polisílaba es polisílaba
+Cameos de Stan Lee
+El incidente de Dhahran
+La desconfianza de la ASALE
+Aburrimiento en la autopista
+Mensaje secreto
+CamelCasi
+¡Son los cuartos!
+Codificación límite
+Arca de Noé
+El telegrama más corto
+Comparando cadenas de ADN
+Yo lo coloco
+El verdugo
+Diagoland
+Acrónimos
+Curiosa propiedad la del 9
+31-12-23
+¡Soldados! ¡Numérense!
+Palíndromos ocultos
+¿Colgadas o colgantes?

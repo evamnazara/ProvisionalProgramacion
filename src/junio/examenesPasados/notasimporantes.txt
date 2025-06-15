@@ -1,33 +1,42 @@
-tu peor cagada fueron los constructores
+TEMA 4:
+    era jodido, gg 
 
-¡Claro! Ahora veo por qué te da error el constructor en tu AppMusicCollab.
+TEMA 4 RECUPERACION: 
+    ejercicio arrays -> ojo en los bucles de sumas y operaciones con que sea el t[i], no el i
+    eres tonta tia.
+    matrices ... f tia haz lo que puedas
+    string: ejercicio de reemplazar, mira bien lo del -1, no con el contains 
 
-El problema es que tu clase Musico tiene como atributo repertorio un List<String>, pero en tu AppMusicCollab estás intentando pasarle un Set<Cancion> (con objetos Cancion), es decir, estás mezclando tipos:
+TEMA 5:
+    todo ok, revisar los atributos estaticos y el equals 
+    ojo con los comparadores
 
-java
-Copiar
-Editar
+TEMA 6: 
+EXAMEN ESTANDAR: 
+
+MEIGAS: 
+
+
+RECUPERACIÓN: 
+LO DE LAS COMILLAS, revisa la correccion -- es con un caracter de escape \ 
+
+LA CAGADA DE LOS CONSTRUCTORES 
+
+Tu clase Musico tiene como atributo repertorio un List<String>, pero en tu AppMusicCollab estás intentando pasarle un Set<Cancion> (con objetos Cancion), es decir, estás mezclando tipos:
 new Musico("Ana López", "BassQueen", List.of("bajo", "voz"),
     new HashSet<>(Arrays.asList(canciones.get(0), canciones.get(1), canciones.get(5))))
 Pero en tu clase Musico:
-private List<String> repertorio;  // Lista de Strings, NO Cancion
+    private List<String> repertorio;  // Lista de Strings, NO Cancion
 y
-
 public Musico(String nombre, String alias, List<String> instrumentos, List<String> repertorio)
 Esto no coincide con el constructor que usas (pasando un Set<Cancion>).
 
 ¿Qué debes hacer?
 Tienes dos opciones:
-
-Opción 1: Cambiar la clase Musico para que repertorio sea Set<Cancion>
-Así puedes almacenar directamente la colección de objetos Cancion que el músico conoce o toca.
-
-Modifica la clase Musico así:
-
-package ud6.eonexamenrec.musicollab;
-
-import java.util.List;
-import java.util.Set;
+Opción 1: 
+    Cambiar la clase Musico para que repertorio sea Set<Cancion>
+    Así puedes almacenar directamente la colección de objetos Cancion que el músico conoce o toca.
+    Modifica la clase Musico así:
 
 public class Musico implements Comparable<Musico> {
     private String nombre;
@@ -80,15 +89,6 @@ public class Musico implements Comparable<Musico> {
         this.repertorio = repertorio;
     }
 
-    @Override
-    public int compareTo(Musico o) {
-        return this.alias.compareTo(o.alias);
-    }
-
-    @Override
-    public String toString() {
-        return "[" + alias + "] (" + nombre + "): " + instrumentos;
-    }
 }
 Opción 2: Cambiar AppMusicCollab para pasar un List<String> en lugar de Set<Cancion>
 Pero en este caso tendrías que pasar los nombres de las canciones, no los objetos Cancion, y por la lógica del ejercicio, lo correcto es tener objetos Cancion.
@@ -100,8 +100,6 @@ Por eso, cambia la clase Musico para que tenga Set<Cancion> repertorio.
 
 Cambia el constructor y métodos relacionados para usar Set<Cancion>.
 
-¿Quieres que te ayude a ajustar el resto del código para esta solución?
-¿O prefieres que te guíe para hacer la opción 2?
 
 
 
@@ -165,8 +163,6 @@ Aquí Java te avisará que no existe un constructor con esos tipos.
 El error típico es algo como:
 
 mathematica
-Copiar
-Editar
 constructor Musico in class Musico cannot be applied to given types;
 required: String,String,List<String>,List<String>
 found: String,String,List<String>,HashSet<Cancion>

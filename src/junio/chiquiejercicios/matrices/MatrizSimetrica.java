@@ -1,7 +1,5 @@
 package junio.chiquiejercicios.matrices;
 
-import java.util.Arrays;
-
 /*Es una matriz cuadrada que es igual a su transpuesta. 
 Los elementos en posiciones simétricas con respecto a 
 la diagonal principal son iguales.  */
@@ -33,7 +31,7 @@ public class MatrizSimetrica {
 
         for (int i = 0; i < matriz.length; i++) {
             for (int j = 0; j < matriz.length; j++) {
-                if (matriz[i][j] != matriz[j][i]) {
+                if (matriz[i][j] != matriz[j][i]) { // si no es igual a su reflejo, no es simetrica
                     return false;
                 }
             }

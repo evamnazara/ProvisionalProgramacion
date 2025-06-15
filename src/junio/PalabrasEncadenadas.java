@@ -19,26 +19,29 @@ Salida: true si todas las palabras de la serie están correctamente encadenadas,
 public class PalabrasEncadenadas {
 
     public static boolean esEncadenada(String cad) {
-        if (cad.length() < 1 || cad.length() > 50) {
+        // se separa la cadena en palabras (separadas x espacio)
+        String[] palabras = cad.split(" ");
+
+        // limite de palabras y de lonjutud de palabras
+        if (palabras.length < 1 || palabras.length > 50) {
             System.out.println("La cadena debe contener entre 1 y 50 palabras");
             return false;
         }
 
-        String[] palabras = cad.split(" ");
-
-        if (palabras.length < 2 || palabras.length > 24) {
-            System.out.println("Las palabras deben tener entre 2 y 24 carácteres");
-            return false;            
+        // longitud de cada palabra:
+        for (String palabra : palabras) {
+            if (palabra.length() < 2 || palabra.length() > 24) {
+                System.out.println("Las palabras deben tener entre 2 y 24 caracteres.");
+                return false;
+            }
         }
 
-        for (int i = 0; i < palabras.length -1; i++) {
+        for (int i = 0; i < palabras.length - 1; i++) {
             String palabraActual = palabras[i];
-
-            String palabraSiguiente = palabras [i + 1];
+            String palabraSiguiente = palabras[i + 1];
 
             String ultSilaba = palabraActual.substring(palabraActual.length() - 2);
-
-            String primSilaba = palabraSiguiente.substring(0,2);
+            String primSilaba = palabraSiguiente.substring(0, 2);
             if (ultSilaba.equals(primSilaba)) {
                 return true;
             }
@@ -46,18 +49,18 @@ public class PalabrasEncadenadas {
         return false;
 
     }
+
     public static void main(String[] args) {
         System.out.println(esEncadenada("a"));
-        System.out.println(esEncadenada("aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa"));
+        System.out.println(
+                esEncadenada("aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa"));
         System.out.println(esEncadenada("gugutata"));
         System.out.println(esEncadenada("mata tapa papa pato"));
-        System.out.println(esEncadenada("seto taco coma matute")); //f
+        System.out.println(esEncadenada("seto taco coma matute")); // f
         System.out.println(esEncadenada("sien encima mapa patuco comida"));
         System.out.println(esEncadenada("cata tasama malote tejaba batama"));
-        System.out.println(esEncadenada("kiosko comida")); //f
+        System.out.println(esEncadenada("kiosko comida")); // f
 
     }
 
-
-    
 }
